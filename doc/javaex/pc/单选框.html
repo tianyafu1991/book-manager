@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>单选框</title>
+<script src="../js/ui.js"></script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>单选框</h4>
+		<hr>
+		
+		<h5>普通单选框（默认点击文字也会勾选，可以不用在外面包一层label）</h5>
+		<input type="radio" class="javaex-fill" name="radio" />单选框未选中<br>
+		<input type="radio" class="javaex-fill" name="radio" checked />单选框选中<br>
+		<input type="radio" class="javaex-fill" name="radio" disabled="disabled" />单选框未选中（只读）<br>
+		<input type="radio" class="javaex-fill" checked disabled="disabled" />单选框选中（只读）
+		
+		<h5>代码</h5>
+		<pre><code class="html">&lt;input type="radio" class="javaex-fill" name="radio" /&gt;单选框未选中
+&lt;input type="radio" class="javaex-fill" name="radio" checked /&gt;单选框选中
+&lt;input type="radio" class="javaex-fill" name="radio" disabled="disabled" /&gt;单选框未选中（只读）
+&lt;input type="radio" class="javaex-fill" checked disabled="disabled" /&gt;单选框选中（只读）</code></pre>
+
+		<p class="divhr"></p>
+
+		<h5>伪单选框（一定要在外面包一层label）</h5>
+		<!--在label标签上添加class即可（选中和未选中的class不要加）-->
+		<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3" value="1" checked/>入门型</label>
+		<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3" value="2"/>标准型</label>
+		<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3" value="3"/>企业型</label>
+		<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3" value="4"/>豪华型</label>
+
+		<h5>代码</h5>
+		<pre><code class="html">&lt;!--在label标签上添加class即可（选中和未选中的class不要加）--&gt;
+&lt;label class="javaex-btn"&gt;&lt;input type="radio" class="javaex-fake" name="radio3" value="1" checked/&gt;入门型&lt;/label&gt;
+&lt;label class="javaex-btn"&gt;&lt;input type="radio" class="javaex-fake" name="radio3" value="2"/&gt;标准型&lt;/label&gt;
+&lt;label class="javaex-btn"&gt;&lt;input type="radio" class="javaex-fake" name="radio3" value="3"/&gt;企业型&lt;/label&gt;
+&lt;label class="javaex-btn"&gt;&lt;input type="radio" class="javaex-fake" name="radio3" value="4"/&gt;豪华型&lt;/label&gt;
+
+&lt;script&gt;
+	javaex.fakeRadio({
+		name : "radio3",
+		uncheckClass : "wathet", // 未选中时添加的class
+		checkedClass : "blue", 	// 选中时添加的class
+		isInit : true,			// 初始化是否调用回调函数
+		callback : function(rtn) {
+			console.log(rtn.val);
+			console.log(rtn.text);
+		}
+	});
+	
+	// jquery原生方法取值
+	$(':radio[name="radio3"]').change(function() {
+		console.log($(this).val());
+	});
+&lt;/script&gt;</code></pre>
+	
+		<h5>参数说明</h5>
+		<table class="javaex-table">
+			<thead>
+				<tr>
+					<th>参数</th>
+					<th>默认值</th>
+					<th>说明</th>
+					<th>版本</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>name</td>
+					<td></td>
+					<td>radio的name属性</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>uncheckClass</td>
+					<td></td>
+					<td>未选中时往label标签添加的class</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>checkedClass</td>
+					<td></td>
+					<td>选中时往label标签添加的class</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>isInit</td>
+					<td>false</td>
+					<td>初始化是否自动调用回调函数</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>callback</td>
+					<td></td>
+					<td>返回选中的值和文本</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	javaex.fakeRadio({
+		name : "radio3",
+		uncheckClass : "wathet", // 未选中时往label标签添加的class
+		checkedClass : "blue", 	// 选中时往label标签添加的class
+		isInit : true,			// 初始化是否自动调用回调函数
+		callback : function(rtn) {
+			console.log(rtn.val);
+			console.log(rtn.text);
+		}
+	});
+	
+	// jquery原生方法取值
+	$(':radio[name="radio3"]').change(function() {
+		console.log($(this).val());
+	});
+</script>
+</html>

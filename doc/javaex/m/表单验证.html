@@ -1,0 +1,273 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单验证</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>表单验证</h4>
+		<hr>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>代码</h5>
+		<pre><code class="html">&lt;div class="list-content-0"&gt;
+	&lt;!--块元素--&gt;
+	&lt;div class="block"&gt;
+		&lt;!--正文内容--&gt;
+		&lt;div class="main"&gt;
+			&lt;!--表单--&gt;
+			&lt;form id="form"&gt;
+				&lt;!--输入框--&gt;
+				&lt;div class="unit clear"&gt;
+					&lt;div class="left"&gt;
+						&lt;p class="subtitle"&gt;用户名&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;div class="right"&gt;
+						&lt;input type="text" name="username" error-label="用户名" data-type="手机号|邮箱" error-msg="手机号或邮箱格式错误" placeholder="请输入手机号或邮箱" /&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;!--分割线--&gt;
+				&lt;p class="divider"&gt;&lt;/p&gt;
+
+				&lt;!--单选框--&gt;
+				&lt;div class="unit clear"&gt;
+					&lt;div class="left"&gt;
+						&lt;p class="subtitle"&gt;性别&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;div class="right"&gt;
+						&lt;input type="radio" class="fill" name="sex" checked/&gt;男
+						&lt;input type="radio" class="fill" name="sex" /&gt;女&lt;br&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;!--分割线--&gt;
+				&lt;p class="divider"&gt;&lt;/p&gt;
+
+				&lt;!--复选框--&gt;
+				&lt;div class="unit clear"&gt;
+					&lt;div class="left"&gt;
+						&lt;p class="subtitle"&gt;兴趣&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;div class="right"&gt;
+						&lt;input type="checkbox" class="fill" name="interest" /&gt;吃饭
+						&lt;input type="checkbox" class="fill" name="interest" /&gt;睡觉
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;!--分割线--&gt;
+				&lt;p class="divider"&gt;&lt;/p&gt;
+
+				&lt;!--文本域--&gt;
+				&lt;div class="unit clear"&gt;
+					&lt;div class="left"&gt;
+						&lt;p class="subtitle"&gt;文本域&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;div class="right"&gt;
+						&lt;textarea class="desc" placeholder="请填写简介"&gt;&lt;/textarea&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;!--分割线--&gt;
+				&lt;p class="divider"&gt;&lt;/p&gt;
+
+				&lt;!--提交按钮--&gt;
+				&lt;div class="unit clear"&gt;
+					&lt;!--表单提交时，必须是input元素，并指定type类型为button，否则ajax提交时，会返回error回调函数--&gt;
+					&lt;input type="button" id="return" class="button red full" value="返回" /&gt;
+					&lt;input type="button" id="save" class="button green full" value="保存" /&gt;
+				&lt;/div&gt;
+			&lt;/form&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	// 监听点击保存按钮事件
+	$("#save").click(function() {
+		// 表单验证函数
+		if (javaexVerify()==true) {
+			// 返回错误信息时，可以添加自定义异常提示
+			// addErrorMsg("用户名不存在");
+			// 提交
+			// $("#form").submit();
+			alert("验证通过");
+		} else {
+			return false;
+		}
+	});
+
+	// 监听点击返回按钮事件
+	$("#return").click(function() {
+		alert("返回");
+		return false;
+	});
+&lt;/script&gt;</code></pre>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="表单验证1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+		
+				
+		<p class="divhr"></p>
+
+		<h5>表单验证说明</h5>
+ 		<pre><code class="html">框架会自动识别验证项的标签
+
+error-label：验证主体（必填，用于提示用户是哪一项）
+data-type：验证类型（必填）
+error-msg：错误提示
+
+示例：
+&lt;input type="text" error-label="单价" data-type="金额" error-msg="金额格式错误" /&gt;
+
+满足多个验证类型中的一个即通过验证，示例：
+&lt;input type="text" error-label="用户名" data-type="手机号|邮箱" error-msg="手机号或邮箱格式错误" /&gt;
+
+如果仅仅是验证必填的话，如判断select下拉选择框有没有选。则只需要 data-type="必填" 即可，不需要 error-msg 属性，示例：
+&lt;input type="text" error-label="学历" data-type="必填" /&gt;
+
+调用javaexVerify()函数进行表单验证，返回true时，代表验证通过
+
+验证通过后，如果你想添加异常信息，如用户名已存在。可以调用 addErrorMsg(参数) 函数添加
+参数：自定义提示
+</code></pre>
+
+		<p class="divhr"></p>
+
+		<h5>框架内置验证类型</h5>
+		<!--加上color可以实现隔行变色-->
+		<!--color1代表奇数行着色，color2代表偶数行着色（th行不算）-->
+		<table class="table color2" style="margin-bottom: 50px;">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>验证类型名称</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>金额</td>
+					<td>0 + 正整数 + 最多2位小数(正数)</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>整数</td>
+					<td>整数</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>正整数</td>
+					<td>正整数</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>负整数</td>
+					<td>负整数</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>非负整数</td>
+					<td>正整数 + 0</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>非正整数</td>
+					<td>负整数 + 0</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>正小数</td>
+					<td>正小数</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>负小数</td>
+					<td>负小数</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>非负小数</td>
+					<td>0 + 正小数</td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td>非正小数</td>
+					<td>0 + 负小数</td>
+				</tr>
+				<tr>
+					<td>11</td>
+					<td>邮箱</td>
+					<td>邮箱</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td>手机号</td>
+					<td>手机号</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>身份证号</td>
+					<td>身份证号</td>
+				</tr>
+				<tr>
+					<td>14</td>
+					<td>中文</td>
+					<td>中文</td>
+				</tr>
+				<tr>
+					<td>15</td>
+					<td>英文字母</td>
+					<td>英文字母</td>
+				</tr>
+				<tr>
+					<td>16</td>
+					<td>英文字母或数字</td>
+					<td>英文字母或数字</td>
+				</tr>
+				<tr>
+					<td>17</td>
+					<td>QQ</td>
+					<td>QQ号</td>
+				</tr>
+				<tr>
+					<td>18</td>
+					<td>车牌号</td>
+					<td>车牌号</td>
+				</tr>
+				<tr>
+					<td>19</td>
+					<td>登录名</td>
+					<td>只能输入5-10个以字母开头，可带数字的字符串</td>
+				</tr>
+				<tr>
+					<td>20</td>
+					<td>密码</td>
+					<td>6到16位字母或数字或它们的组合</td>
+				</tr>
+				<tr>
+					<td>21</td>
+					<td>密码强</td>
+					<td>字母+数字+特殊字符组合 <font color="red">这个正则表达式没写好，长度需要自己做限制判断</font></td>
+				</tr>
+				<tr>
+					<td>22</td>
+					<td>必填</td>
+					<td>必填</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

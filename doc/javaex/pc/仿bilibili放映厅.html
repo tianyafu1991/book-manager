@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>仿bilibili放映厅</title>
+<script src="../js/ui.js"></script>
+<style>
+.javaex-slide{border-radius: 4px;}
+.javaex-slide .javaex-slide-focus-title span.title{position: absolute; bottom: 9px;left: 10px; line-height: 22px; height: 22px; font-size: 14px; color: #fff;z-index: 10; white-space: nowrap; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis;}
+.javaex-slide-focus-box{position: absolute; width: 100%; height: 62px; bottom: 0; left: 0; background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(rgba(0,0,0,.75))); background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,.75)); background: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.75) 100%); background: linear-gradient(-180deg,rgba(0,0,0,0),rgba(0,0,0,.75));}
+.javaex-slide-focus-box ul{position: absolute; bottom: 9px; right: 8px;}
+.javaex-slide-focus-box ul li{margin-right:10px;width:64px; height:48px;float:left; text-align:center;position: relative;overflow: hidden;}
+.javaex-slide-focus-box ul li img{border-radius: 4px;border:2px solid #fff; cursor:pointer;}
+.javaex-slide-focus-box ul li.on img{border: 2px solid #f25d8e; -webkit-transition: left .3s ease; -o-transition: left .3s ease; transition: left .3s ease;}
+	
+.javaex-slide{width: 1160px; height: 332px;}
+.javaex-slide ul.javaex-slide-focus-bg li{width: 1160px; height: 332px;}
+.javaex-slide ul.javaex-slide-focus-bg img, .javaex-slide .javaex-slide-focus-box img{width: 100%; height: 100%;}
+</style>
+</head>
+
+<body>
+	<div class="doc-markdown">
+		<h4>仿bilibili放映厅</h4>
+		<hr>
+
+		<div style="width: 1160px; height: 332px; margin: 0 auto;">
+			<!--幻灯片-->
+			<div id="slide" class="javaex-slide">
+				<!--背景大图-->
+				<ul class="javaex-slide-focus-bg">
+					<li>
+						<a href="javascript:;" target="_blank">
+							<img src="http://img.javaex.cn/FiDz-_fmZ5sOf7NcX_1P7SSMp5Lh"/>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<img src="http://img.javaex.cn/FtXF1_IChh0R5gnV-iJJDq-7IliZ"/>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<img src="http://img.javaex.cn/FnUnxb2XPdnt_Q1CoUXThysE9DOc"/>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<img src="http://img.javaex.cn/Fj93BvY8ZqDr5i8kJW5rYHQcYBzF"/>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<img src="http://img.javaex.cn/Fi2mGN3zMYQiM1vxfndDo0UDAkAp"/>
+						</a>
+					</li>
+				</ul>
+
+				<!--标题，如果不需要，直接去掉这个div即可-->
+				<div class="javaex-slide-focus-title">
+					<ul>
+						<li><span class="title">1月19日bilibili首播</span></li>
+						<li><span class="title">爸爸永远爱你</span></li>
+						<li><span class="title">《命运之夜——天之杯：恶兆之花》终极预告片来袭！</span></li>
+						<li><span class="title">现在我也没得选</span></li>
+						<li><span class="title">给电影的一封情书</span></li>
+					</ul>
+				</div>
+				
+				<!--焦点，如果不需要焦点的话，直接去掉这个div即可-->
+				<div class="javaex-slide-focus-box">
+					<ul>
+						<li>
+							<a href="javascript:;"><img src="http://img.javaex.cn/Fv5afCv9R0m8iT7GkQ1QyK8W9Aju" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="http://img.javaex.cn/Fhn1l1MTy3Ljio7ylmbpakONB-DG" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="http://img.javaex.cn/Fks00FHWefiaIl0DJMQ3hHH-69AP" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="http://img.javaex.cn/FhaD9dUkpKsJwQz0sTEGwlGPWM95" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="http://img.javaex.cn/FoIYv2e6psB3wUy0431_2DuZ8knH" /></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<h5>代码</h5>
+		<pre><code>&lt;style&gt;
+.javaex-slide{border-radius: 4px;}
+.javaex-slide .javaex-slide-focus-title span.title{position: absolute; bottom: 9px;left: 10px; line-height: 22px; height: 22px; font-size: 14px; color: #fff;z-index: 10; white-space: nowrap; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis;}
+.javaex-slide-focus-box{position: absolute; width: 100%; height: 62px; bottom: 0; left: 0; background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(rgba(0,0,0,.75))); background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,.75)); background: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.75) 100%); background: linear-gradient(-180deg,rgba(0,0,0,0),rgba(0,0,0,.75));}
+.javaex-slide-focus-box ul{position: absolute; bottom: 9px; right: 8px;}
+.javaex-slide-focus-box ul li{margin-right:10px;width:64px; height:48px;float:left; text-align:center;position: relative;overflow: hidden;}
+.javaex-slide-focus-box ul li img{border-radius: 4px;border:2px solid #fff; cursor:pointer;}
+.javaex-slide-focus-box ul li.on img{border: 2px solid #f25d8e; -webkit-transition: left .3s ease; -o-transition: left .3s ease; transition: left .3s ease;}
+	
+.javaex-slide{width: 1160px; height: 332px;}
+.javaex-slide ul.javaex-slide-focus-bg li{width: 1160px; height: 332px;}
+.javaex-slide ul.javaex-slide-focus-bg img, .javaex-slide .javaex-slide-focus-box img{width: 100%; height: 100%;}
+&lt;/style&gt;
+
+&lt;!--幻灯片--&gt;
+&lt;div id="slide" class="javaex-slide"&gt;
+	&lt;!--背景大图--&gt;
+	&lt;ul class="javaex-slide-focus-bg"&gt;
+		&lt;li&gt;
+			&lt;a href="javascript:;" target="_blank"&gt;
+				&lt;img src="http://img.javaex.cn/FiDz-_fmZ5sOf7NcX_1P7SSMp5Lh"/&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="javascript:;" target="_blank"&gt;
+				&lt;img src="http://img.javaex.cn/FtXF1_IChh0R5gnV-iJJDq-7IliZ"/&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="javascript:;" target="_blank"&gt;
+				&lt;img src="http://img.javaex.cn/FnUnxb2XPdnt_Q1CoUXThysE9DOc"/&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="javascript:;" target="_blank"&gt;
+				&lt;img src="http://img.javaex.cn/Fj93BvY8ZqDr5i8kJW5rYHQcYBzF"/&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="javascript:;" target="_blank"&gt;
+				&lt;img src="http://img.javaex.cn/Fi2mGN3zMYQiM1vxfndDo0UDAkAp"/&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+
+	&lt;!--标题，如果不需要，直接去掉这个div即可--&gt;
+	&lt;div class="javaex-slide-focus-title"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;span class="title"&gt;1月19日bilibili首播&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span class="title"&gt;爸爸永远爱你&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span class="title"&gt;《命运之夜——天之杯：恶兆之花》终极预告片来袭！&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span class="title"&gt;现在我也没得选&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span class="title"&gt;给电影的一封情书&lt;/span&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	
+	&lt;!--焦点，如果不需要焦点的话，直接去掉这个div即可--&gt;
+	&lt;div class="javaex-slide-focus-box"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;
+				&lt;a href="javascript:;"&gt;&lt;img src="http://img.javaex.cn/Fv5afCv9R0m8iT7GkQ1QyK8W9Aju" /&gt;&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;a href="javascript:;"&gt;&lt;img src="http://img.javaex.cn/Fhn1l1MTy3Ljio7ylmbpakONB-DG" /&gt;&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;a href="javascript:;"&gt;&lt;img src="http://img.javaex.cn/Fks00FHWefiaIl0DJMQ3hHH-69AP" /&gt;&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;a href="javascript:;"&gt;&lt;img src="http://img.javaex.cn/FhaD9dUkpKsJwQz0sTEGwlGPWM95" /&gt;&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;a href="javascript:;"&gt;&lt;img src="http://img.javaex.cn/FoIYv2e6psB3wUy0431_2DuZ8knH" /&gt;&lt;/a&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	javaex.slide({
+		id : "slide",
+		effect : "slice"
+	});
+&lt;/script&gt;</code></pre>
+	</div>
+</body>
+<script>
+	javaex.slide({
+		id : "slide",
+		effect : "slice"
+	});
+</script>
+</html>

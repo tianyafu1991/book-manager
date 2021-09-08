@@ -1,0 +1,86 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>select选择框</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>select选择框</h4>
+		<hr>
+		
+		<div class="word">
+			按照原生的方法使用即可，但是不再支持onchange事件，需要使用回调函数来代替onchange
+		</div>
+
+
+		<div class="grid-7-2-1">
+			<div>
+				<h5>代码</h5>
+		<pre><code class="html">&lt;select id="select"&gt;
+	&lt;option value=""&gt;请选择&lt;/option&gt;
+	&lt;option value="1"&gt;大专&lt;/option&gt;
+	&lt;option value="2"&gt;本科&lt;/option&gt;
+	&lt;option value="3"&gt;硕士&lt;/option&gt;
+	&lt;option value="4"&gt;博士&lt;/option&gt;
+	&lt;option value="5"&gt;博士后&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;script&gt;
+	javaex.select({
+		id : "select",
+		// 选择后的回调函数，初始化时也会自动调用一次
+		callback: function (rtn) {
+			console.log("selectValue:" + rtn.selectValue);
+			console.log("selectName:" + rtn.selectName);
+		}
+	});
+&lt;/script&gt;</code></pre>
+		
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>id</td>
+							<td></td>
+							<td>select选择框的id</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>callback</td>
+							<td></td>
+							<td>
+								选择后的回调函数，初始化时也会自动调用一次<br />
+								使用该组件后，原生的onchange事件将会失效，如果你想做联动数据，则必须在此回调函数中进行<br />
+								如果不需要联动修改其他的select框的数据，则可以不需要回调函数，可以用原生的方法获取值
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="下拉选择框1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

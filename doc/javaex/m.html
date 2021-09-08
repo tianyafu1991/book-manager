@@ -1,0 +1,269 @@
+﻿<!--<!doctype html>-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaEx文档（手机）</title>
+<!--公共样式-->
+<link href="javaex/pc/css/common.css" rel="stylesheet" />
+<!--皮肤-->
+<link href="javaex/pc/css/skin/default.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<!--jquery，当前版本不可更改jquery版本-->
+<script src="http://cdn.javaex.cn/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+<!--核心组件-->
+<script src="http://cdn.javaex.cn/javaex/pc/js/javaex.min.js"></script>
+<style>
+	.menu{height: auto;min-width: 0;}
+	/*修改滚动条样式*/
+	::-webkit-scrollbar {width: 8px;height: 8px;}
+	::-webkit-scrollbar-thumb {background-color: #c2c2c2;background-clip: padding-box;min-height: 28px;}
+	::-webkit-scrollbar-track-piece {background-color: #FFF;}
+</style>
+<script>
+	function view(a) {
+		for(var i=1; i<=36; i++) {
+			document.getElementById("page"+i).style.display = "none";
+			document.getElementById("tab"+i).className = "";
+		}
+		document.getElementById("page"+a).style.display = "block";
+		document.getElementById("tab"+a).className = "active";
+	}
+</script>
+</head>
+<body>
+	<div class="doc-header animated">
+		<h1 class="logo"><a href="javascript:;">Javaex 文档</a></h1>
+		<div class="doc-tab">
+			<ul class="tabs">
+				<li class="tab"><a href="index.html">文档（电脑）</a></li>
+				<li class="tab active"><a href="m.html">文档（手机）</a></li>
+				<li class="tab"><a href="update.html">更新日志</a></li>
+				<li class="tab"><a href="https://www.bilibili.com/video/av25074523/" target="_blank">视频教程</a></li>
+				<li class="tab"><a href="http://www.javaex.cn">论坛</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="doc-content">
+		<div class="doc-nav">
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">基础知识</a>
+					<ul class="pages">
+						<li id="tab1" class="active" onclick="javascript:view(1);"><a href="javascript:;">框架概述</a></li>
+						<li id="tab3" onclick="javascript:view(3);"><a href="javascript:;">开始使用</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">系统</a>
+					<ul class="pages">
+						<li id="tab35" onclick="javascript:view(35);"><a href="javascript:;">通用样式</a></li>
+						<li id="tab6" onclick="javascript:view(6);"><a href="javascript:;">内容结构</a></li>
+						<li id="tab4" onclick="javascript:view(4);"><a href="javascript:;">栅格系统</a></li>
+						<li id="tab5" onclick="javascript:view(5);"><a href="javascript:;">等分系统</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">页面元素</a>
+					<ul class="pages">
+						<li id="tab7" onclick="javascript:view(7);"><a href="javascript:;">字体图标</a></li>
+						<li id="tab34" onclick="javascript:view(34);"><a href="javascript:;">动画效果</a></li>
+						<li id="tab9" onclick="javascript:view(9);"><a href="javascript:;">导航菜单（侧栏）</a></li>
+						<li id="tab10" onclick="javascript:view(10);"><a href="javascript:;">导航菜单（下拉）</a></li>
+						<li id="tab21" onclick="javascript:view(21);"><a href="javascript:;">导航菜单（底部）</a></li>
+						<li id="tab11" onclick="javascript:view(11);"><a href="javascript:;">按钮</a></li>
+						<li id="tab16" onclick="javascript:view(16);"><a href="javascript:;">单选框</a></li>
+						<li id="tab17" onclick="javascript:view(17);"><a href="javascript:;">复选框</a></li>
+						<li id="tab19" onclick="javascript:view(19);"><a href="javascript:;">选项卡切换</a></li>
+						<li id="tab22" onclick="javascript:view(22);"><a href="javascript:;">下拉选择框</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">弹出层</a>
+					<ul class="pages">
+						<li id="tab12" onclick="javascript:view(12);"><a href="javascript:;">普通弹出层</a></li>
+						<li id="tab2" onclick="javascript:view(2);"><a href="javascript:;">操作提示层</a></li>
+						<li id="tab26" onclick="javascript:view(26);"><a href="javascript:;">页面预加载</a></li>
+						<li id="tab13" onclick="javascript:view(13);"><a href="javascript:;">高级弹出层（菜单）</a></li>
+						<li id="tab8" onclick="javascript:view(8);"><a href="javascript:;">高级弹出层（内容）</a></li>
+						<li id="tab24" onclick="javascript:view(24);"><a href="javascript:;">关闭弹出层API</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">幻灯片</a>
+					<ul class="pages">
+						<li id="tab31" onclick="javascript:view(31);"><a href="javascript:;">默认幻灯片结构</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">组件</a>
+					<ul class="pages">
+						<li id="tab15" onclick="javascript:view(15);"><a href="javascript:;">表单验证</a></li>
+						<li id="tab20" onclick="javascript:view(20);"><a href="javascript:;">日期时间</a></li>
+						<li id="tab14" onclick="javascript:view(14);"><a href="javascript:;">滚动公告</a></li>
+						<li id="tab27" onclick="javascript:view(27);"><a href="javascript:;">滑动tab</a></li>
+						<li id="tab28" onclick="javascript:view(28);"><a href="javascript:;">返回顶部</a></li>
+						<li id="tab29" onclick="javascript:view(29);"><a href="javascript:;">验证码倒计时</a></li>
+						<li id="tab30" onclick="javascript:view(30);"><a href="javascript:;">图片懒加载</a></li>
+						<li id="tab18" onclick="javascript:view(18);"><a href="javascript:;">上滑加载（分页）</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">渲染引擎</a>
+					<ul class="pages">
+						<li id="tab23" onclick="javascript:view(23);"><a href="javascript:;">重新渲染</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="menus">
+				<li class="menu active">
+					<a href="javascript:;">API接口</a>
+					<ul class="pages">
+						<li id="tab33" onclick="javascript:view(33);"><a href="javascript:;">生成唯一id</a></li>
+						<li id="tab25" onclick="javascript:view(25);"><a href="javascript:;">获取系统时间</a></li>
+						<li id="tab32" onclick="javascript:view(32);"><a href="javascript:;">修改时间显示</a></li>
+						<li id="tab36" onclick="javascript:view(36);"><a href="javascript:;">将null转为空字符串</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!--基础知识-->
+		<div class="doc-markdown markdown-body" id="page1" style="display: block;">
+			<iframe src="m/框架概述.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page3" style="display: none;">
+			<iframe src="m/开始使用.html"></iframe>
+		</div>
+		
+		<!--系统-->
+		<div class="doc-markdown markdown-body" id="page35" style="display: none;">
+			<iframe src="m/通用样式.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page6" style="display: none;">
+			<iframe src="m/内容结构.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page4" style="display: none;">
+			<iframe src="m/栅格系统.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page5" style="display: none;">
+			<iframe src="m/等分系统.html"></iframe>
+		</div>
+		
+		<!--页面元素-->
+		<div class="doc-markdown markdown-body" id="page7" style="display: none;">
+			<iframe src="m/字体图标.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page34" style="display: none;">
+			<iframe src="m/动画效果.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page9" style="display: none;">
+			<iframe src="m/导航菜单（侧栏）.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page10" style="display: none;">
+			<iframe src="m/导航菜单（下拉）.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page21" style="display: none;">
+			<iframe src="m/导航菜单（底部）.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page11" style="display: none;">
+			<iframe src="m/按钮.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page16" style="display: none;">
+			<iframe src="m/单选框.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page17" style="display: none;">
+			<iframe src="m/复选框.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page19" style="display: none;">
+			<iframe src="m/选项卡切换.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page22" style="display: none;">
+			<iframe src="m/下拉选择框.html"></iframe>
+		</div>
+		
+		<!--弹出层-->
+		<div class="doc-markdown markdown-body" id="page12" style="display: none;">
+			<iframe src="m/普通弹出层.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page2" style="display: none;">
+			<iframe src="m/操作提示层.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page26" style="display: none;">
+			<iframe src="m/页面预加载.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page13" style="display: none;">
+			<iframe src="m/高级弹出层（菜单）.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page8" style="display: none;">
+			<iframe src="m/高级弹出层（内容）.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page24" style="display: none;">
+			<iframe src="m/关闭弹出层API.html"></iframe>
+		</div>
+
+		<!--幻灯片-->
+		<div class="doc-markdown markdown-body" id="page31" style="display: none;">
+			<iframe src="m/默认幻灯片结构.html"></iframe>
+		</div>
+		
+		<!--组件-->
+		<div class="doc-markdown markdown-body" id="page15" style="display: none;">
+			<iframe src="m/表单验证.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page20" style="display: none;">
+			<iframe src="m/日期时间.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page14" style="display: none;">
+			<iframe src="m/滚动公告.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page27" style="display: none;">
+			<iframe src="m/滑动tab.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page28" style="display: none;">
+			<iframe src="m/返回顶部.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page29" style="display: none;">
+			<iframe src="m/验证码倒计时.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page30" style="display: none;">
+			<iframe src="pc/图片懒加载.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page18" style="display: none;">
+			<iframe src="m/上滑加载.html"></iframe>
+		</div>
+		
+		<!--渲染引擎-->
+		<div class="doc-markdown markdown-body" id="page23" style="display: none;">
+			<iframe src="m/重新渲染.html"></iframe>
+		</div>
+		
+		<!--API接口-->
+		<div class="doc-markdown markdown-body" id="page33" style="display: none;">
+			<iframe src="m/生成唯一id.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page25" style="display: none;">
+			<iframe src="m/获取系统时间.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page32" style="display: none;">
+			<iframe src="m/修改时间显示.html"></iframe>
+		</div>
+		<div class="doc-markdown markdown-body" id="page36" style="display: none;">
+			<iframe src="m/将null转为空字符串.html"></iframe>
+		</div>
+	</div>
+</body>
+<script>
+	javaex.loading();
+</script>
+</html>

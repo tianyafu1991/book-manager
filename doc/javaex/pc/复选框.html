@@ -1,0 +1,216 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>复选框</title>
+<script src="../js/ui.js"></script>
+<style>
+.test, .test div{border: 1px solid red;}
+#switch-test:before {
+	content: "开关";
+	letter-spacing: 16px;
+	top: 4px;
+	left: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>复选框</h4>
+		<hr>
+		
+		<h5>普通复选框（默认点击文字也会勾选，可以不用在外面包一层label）</h5>
+		<input type="checkbox" class="javaex-fill"/>复选框未选中<br />
+		<input type="checkbox" class="javaex-fill" checked/>复选框选中<br />
+		<input type="checkbox" class="javaex-fill" disabled="disabled"/>复选框未选中（只读）<br />
+		<input type="checkbox" class="javaex-fill" checked disabled="disabled"/>复选框选中（只读）
+		
+		<h5>代码</h5>
+		<p class="javaex-tip danger">如果没有文字，则必须写一个空格 或者 直接用label标签包起来</p>
+		<pre><code>&lt;input type="checkbox" class="javaex-fill"/&gt;复选框未选中
+&lt;input type="checkbox" class="javaex-fill" checked/&gt;复选框选中
+&lt;input type="checkbox" class="javaex-fill" disabled="disabled"/&gt;复选框未选中（只读）
+&lt;input type="checkbox" class="javaex-fill" checked disabled="disabled"/&gt;复选框选中（只读）</code></pre>
+		
+		<p class="divhr"></p>
+		
+		<h5>开关样式的复选框（支持onchange事件）</h5>
+		未选中：<input type="checkbox" class="javaex-switch" onchange="test(this)"/>
+		<h5>代码</h5>
+		<pre><code>&lt;!--开关样式需指定class为javaex-switch---&gt;
+未选中：&lt;input type="checkbox" class="javaex-switch" onchange="test(this)"/&gt;
+
+&lt;script&gt;
+	function test(obj) {
+		console.log("切换了");
+//		$(obj).attr("checked", false);
+// 或
+//		$(obj).prop("checked", false);
+	}
+&lt;/script&gt;</code></pre>
+
+		<h5>如果你对 √x 不满意，想换成别的，可以添加一个id，然后微调样式</h5>
+		<input type="checkbox" class="javaex-switch" id="switch-test"/>
+		<pre><code>&lt;style&gt;
+#switch-test:before {
+	content: "开关";
+	letter-spacing: 16px;
+	top: 4px;
+	left: 10px;
+}
+&lt;/style&gt;
+
+&lt;input type="checkbox" class="javaex-switch" id="switch-test"/&gt;</code></pre>
+
+		<p class="divhr"></p>
+
+		<h5>普通全选（常用于表格全选）</h5>
+		<h5>添加 listen 属性。父级：listen-X，子级： listen-X-Y</h5>
+		<h5>X、Y并不仅限于数字，例如：父级：listen-table，子级： listen-table-next 也是可以的</h5>
+		父级：<input type="checkbox" class="javaex-fill" listen="listen-1"/> <br />
+		子级：<input type="checkbox" class="javaex-fill" name="id" listen="listen-1-2" value="1" /> <br />
+		子级（禁用）：<input type="checkbox" class="javaex-fill" name="id" listen="listen-1-2" value="2" disabled="disabled"/> <br />
+		子级：<input type="checkbox" class="javaex-fill" name="id" listen="listen-1-2" value="3" /> 
+		<h5>代码</h5>
+		<pre><code class="html">父级：&lt;input type="checkbox" class="javaex-fill" listen="listen-1"/&gt; &lt;br /&gt;
+子级：&lt;input type="checkbox" class="javaex-fill" name="id" listen="listen-1-2" value="1" /&gt; &lt;br /&gt;
+子级（禁用）：&lt;input type="checkbox" class="javaex-fill" name="id" listen="listen-1-2" value="2" disabled="disabled"/&gt; &lt;br /&gt;
+子级：&lt;input type="checkbox" class="javaex-fill" name="id" listen="listen-1-2" value="3" /&gt; </code></pre>
+	
+		<p class="divhr"></p>
+		
+		<h5>高级全选</h5>
+		<h5>添加 listen 属性。爷爷辈：listen-X，父辈：listen-X-(X+1)，子辈： listen-X-(Max(X+1)+1)</h5>
+		<div class="javaex-grid test">
+			<div class="javaex-grid-3">
+				<input type="checkbox" class="javaex-fill" listen="listen-3"/>全选
+			</div>
+			<div class="javaex-grid-3">
+				<div><input type="checkbox" class="javaex-fill" listen="listen-3-4"/>前端</div>
+				<div><input type="checkbox" class="javaex-fill" listen="listen-3-5"/>后台</div>
+			</div>
+			<div class="javaex-grid-6">
+				<div>
+					<ul class="javaex-equal-3">
+						<li><input type="checkbox" class="javaex-fill" listen="listen-3-4-6"/>貂蝉</li>
+						<li><input type="checkbox" class="javaex-fill" listen="listen-3-4-6" disabled="disabled"/>西施（禁用）</li>
+						<li><input type="checkbox" class="javaex-fill" listen="listen-3-4-6"/>王昭君</li>
+						<span class="clearfix"></span>
+					</ul>
+				</div>
+				<div>
+					<ul class="javaex-equal-3">
+						<li><input type="checkbox" class="javaex-fill" listen="listen-3-5-6"/>刘备</li>
+						<li><input type="checkbox" class="javaex-fill" listen="listen-3-5-6"/>关羽</li>
+						<li><input type="checkbox" class="javaex-fill" listen="listen-3-5-6"/>张飞</li>
+						<span class="clearfix"></span>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<h5>代码</h5>
+		<pre><code>&lt;div class="javaex-grid"&gt;
+	&lt;div class="javaex-grid-3"&gt;
+		&lt;input type="checkbox" class="javaex-fill" listen="listen-3"/&gt;全选
+	&lt;/div&gt;
+	&lt;div class="javaex-grid-3"&gt;
+		&lt;div&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-4"/&gt;前端&lt;/div&gt;
+		&lt;div&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-5"/&gt;后台&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="javaex-grid-6"&gt;
+		&lt;div&gt;
+			&lt;ul class="javaex-equal-3"&gt;
+				&lt;li&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-4-6"/&gt;貂蝉&lt;/li&gt;
+				&lt;li&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-4-6" disabled="disabled"/&gt;西施（禁用）&lt;/li&gt;
+				&lt;li&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-4-6"/&gt;王昭君&lt;/li&gt;
+				&lt;span class="clearfix"&gt;&lt;/span&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;ul class="javaex-equal-3"&gt;
+				&lt;li&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-5-6"/&gt;刘备&lt;/li&gt;
+				&lt;li&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-5-6"/&gt;关羽&lt;/li&gt;
+				&lt;li&gt;&lt;input type="checkbox" class="javaex-fill" listen="listen-3-5-6"/&gt;张飞&lt;/li&gt;
+				&lt;span class="clearfix"&gt;&lt;/span&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+		<h5>针对复选框的 listen="listen-x" 属性全选。如果你想监听例如至少勾选一个复选框，才解除按钮的禁止点击状态，请调用如下方法，并将你的逻辑写在回调函数里</h5>
+		<pre><code>// 监听复选框选中事件
+javaex.listenCheckbox({
+	callback : function() {
+		// 把你的逻辑写在这里
+	}
+});</code></pre>
+
+		<p class="divhr"></p>
+
+		<h5>伪复选框（一定要在外面包一层label）</h5>
+		<!--在label标签上添加class即可（选中和未选中的class不要加）-->
+		<label class="javaex-btn"><input type="checkbox" class="javaex-fake" name="checkbox3" value="1"/>B</label>
+		<label class="javaex-btn"><input type="checkbox" class="javaex-fake" name="checkbox3" value="2"/>奥黛丽</label>
+		<label class="javaex-btn"><input type="checkbox" class="javaex-fake" name="checkbox3" value="3"/>艾拉公主</label>
+		<label class="javaex-btn"><input type="checkbox" class="javaex-fake" name="checkbox3" value="4"/>玛丽</label>
+
+		<h5>代码</h5>
+		<pre><code>&lt;label class="javaex-btn"&gt;&lt;input type="checkbox" class="javaex-fake" name="checkbox3" value="1"/&gt;B&lt;/label&gt;
+&lt;label class="javaex-btn"&gt;&lt;input type="checkbox" class="javaex-fake" name="checkbox3" value="2"/&gt;奥黛丽&lt;/label&gt;
+&lt;label class="javaex-btn"&gt;&lt;input type="checkbox" class="javaex-fake" name="checkbox3" value="3"/&gt;艾拉公主&lt;/label&gt;
+&lt;label class="javaex-btn"&gt;&lt;input type="checkbox" class="javaex-fake" name="checkbox3" value="4"/&gt;玛丽&lt;/label&gt;
+
+&lt;script&gt;
+	javaex.fakeCheckbox({
+		name : "checkbox3",
+		uncheckClass : "wathet", // 未选中时添加的class
+		checkedClass : "blue" 	// 选中时添加的class
+	});
+&lt;/script&gt;</code></pre>
+	
+		<h5>参数说明</h5>
+		<table class="javaex-table">
+			<thead>
+				<tr>
+					<th>参数</th>
+					<th>默认值</th>
+					<th>说明</th>
+					<th>版本</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>name</td>
+					<td></td>
+					<td>checkbox的name属性</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>uncheckClass</td>
+					<td></td>
+					<td>未选中时往label标签添加的class</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>checkedClass</td>
+					<td></td>
+					<td>选中时往label标签添加的class</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	function test(obj) {
+		console.log("切换了");
+//		$(obj).attr("checked", false);
+	}
+
+	javaex.fakeCheckbox({
+		name : "checkbox3",
+		uncheckClass : "wathet", // 未选中时添加的class
+		checkedClass : "blue"    // 选中时添加的class
+	});
+</script>
+</html>

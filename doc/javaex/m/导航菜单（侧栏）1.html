@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航菜单（侧栏）</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<button class="button blue" onclick="showSlideNav()">点击测试</button>
+	
+	<!--左侧滑动菜单-->
+	<div id="slide-nav">
+		点击遮罩关闭
+	</div>
+</body>
+<script>
+	function showSlideNav() {
+		javaex.nav({
+			type : "slide"
+		});
+	}
+</script>
+</html>

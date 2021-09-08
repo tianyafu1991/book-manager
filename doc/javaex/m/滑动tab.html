@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>滑动tab</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>滑动tab</h4>
+		<hr>
+
+		<div class="word">
+			该组件需要在手机端看才能滑动（不需要js支持），该组件调用js仅仅是控制选中项高亮，如果是作为导航栏跳转页面使用，则不需要调用js
+		</div>
+
+		<div class="grid-7-2-1">
+			<div>
+				<h5>滑动tab</h5>
+			<pre><code class="html">&lt;div class="tabbar-container"&gt;
+	&lt;div id="tabbar" class="tabbar"&gt;
+		&lt;a href="#" class="activate"&gt;全部&lt;/a&gt;
+		&lt;a href="#"&gt;电影&lt;/a&gt;
+		&lt;a href="#"&gt;剧集&lt;/a&gt;
+		&lt;a href="#"&gt;动漫&lt;/a&gt;
+		&lt;a href="#"&gt;音乐&lt;/a&gt;
+		&lt;a href="#"&gt;娱乐&lt;/a&gt;
+		&lt;a href="#"&gt;舞蹈&lt;/a&gt;
+		&lt;a href="#"&gt;文章&lt;/a&gt;
+		&lt;a href="#"&gt;鱼塘&lt;/a&gt;
+		&lt;a href="#"&gt;广告&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	javaex.tabbar({
+		id : "tabbar"
+	});
+&lt;/script&gt;</code></pre>
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>id</td>
+							<td></td>
+							<td>组件id</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="滑动tab1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

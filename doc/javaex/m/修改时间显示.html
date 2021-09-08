@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改时间显示</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>修改时间显示</h4>
+		<hr>
+		
+		<h5>只对 yyyy-MM-dd HH:mm:ss 格式的时间有效</h5>
+		<pre><code class="html">/* 
+ * 修改时间显示
+ * time : 传入的时间，格式yyyy-MM-dd HH:mm:ss
+ */
+var timeText = javaex.changeTimeText(time);</code></pre>
+		<br/>
+		<pre><code class="html">/* 
+ * 修改时间显示
+ * selector : jquery选择器，例如    ".change-time"
+ */
+javaex.changeTimeTexts(selector);</code></pre>
+	</div>
+</body>
+</html>

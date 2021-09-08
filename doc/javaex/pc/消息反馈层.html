@@ -1,0 +1,133 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>消息反馈层</title>
+<script src="../js/ui.js"></script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>消息反馈层</h4>
+		<hr>
+
+		<h5>提交中提示（ajax提交前调用。只能依靠ajax返回数据后，再次调用成功或异常提示，才能让其消失，请无视演示中的自动消失）</h5>
+		<h5>该提示存在时，页面将无法再点击其他元素（防止用户重复提交）</h5>
+		<button id="submit" class="button blue">提交中提示</button>
+		<h5>代码</h5>
+		<pre><code class="html">&lt;button id="submit" class="button blue"&gt;提交中提示&lt;/button&gt;
+&lt;script&gt;
+	$("#submit").click(function() {
+		javaex.message({
+			content : "数据提交中，请稍候...",
+			type : "submit"
+		});
+	});
+&lt;/script&gt;</code></pre>
+		
+		<p class="divhr"></p>
+
+		<h5>成功提示</h5>
+		<button id="success" class="button blue">成功提示</button>
+		<h5>代码</h5>
+		<pre><code class="html">&lt;button id="success" class="button blue"&gt;成功提示&lt;/button&gt;
+
+&lt;script&gt;
+	$("#success").click(function() {
+		javaex.message({
+			content : "操作成功",
+			type : "success"
+		});
+	});
+&lt;/script&gt;</code></pre>
+		
+		<p class="divhr"></p>
+		
+		<h5>异常提示</h5>
+		<button id="error" class="button blue">异常提示</button>
+		<h5>代码</h5>
+		<pre><code class="html">&lt;button id="error" class="button blue"&gt;异常提示&lt;/button&gt;
+
+&lt;script&gt;
+	$("#error").click(function() {
+		javaex.message({
+			content : "操作失败",
+			type : "error"
+		});
+	});
+&lt;/script&gt;</code></pre>
+		
+		<p class="divhr"></p>
+		
+		<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+		<table class="table color2" style="margin-bottom: 50px;">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>属性名</th>
+					<th>默认值</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>content</td>
+					<td></td>
+					<td>弹出层内容</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>type</td>
+					<td>success</td>
+					<td>success：成功。 error：失败</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>live</td>
+					<td>2000</td>
+					<td>提示存在时间，单位：毫秒。1000毫秒=1秒 <font color="red">（仅在type为 success 或 error 时有效）</font></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>timeout</td>
+					<td>0</td>
+					<td>提交超时时间（单位：毫秒），填0时，不会有超时提示</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>timeoutText</td>
+					<td>连接超时，请重试</td>
+					<td>超时提示</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	$("#submit").click(function() {
+		javaex.message({
+			content : "数据提交中，请稍候...",
+			type : "submit"
+		});
+		
+		setTimeout(function() {
+			$(".message-feedback").remove();
+			$(".mask").remove();
+		}, 2000);
+	});
+
+	$("#success").click(function() {
+		javaex.message({
+			content : "操作成功",
+			type : "success"
+		});
+	});
+	
+	$("#error").click(function() {
+		javaex.message({
+			content : "操作失败",
+			type : "error"
+		});
+	});
+</script>
+</html>

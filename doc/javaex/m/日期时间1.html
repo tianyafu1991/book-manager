@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>日期时间</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body style="text-align:center;">
+	电脑上演示时无法滚动<br />
+	请用手机扫描二维码测试<br />
+	<br />
+	<br />
+	<img src="../images/1516697990.png" >
+	<br />
+	<br />
+	电脑版演示
+	<!--块元素-->
+	<div class="block">
+		<!--正文内容-->
+		<div class="main">
+			<!--输入框-->
+			<div class="unit">
+				<div class="left">
+					<p class="subtitle">日期时间</p>
+				</div>
+				<div class="right">
+					<input id="date" type="text" placeholder="点击选择" value="" readonly />
+				</div>
+				<!--清浮动-->
+				<span class="clearfix"></span>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	javaex.date({
+		id : "date",
+		// date : "2018-01-01",	// 默认选择的日期
+		// 重新选择日期之后返回一个时间对象
+		callback: function (rtn) {
+			alert(rtn.date);
+		}
+	});
+</script>
+</html>

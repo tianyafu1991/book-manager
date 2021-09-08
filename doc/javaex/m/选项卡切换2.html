@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选项卡切换</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<div class="tab-container">
+		<div id="tab2" class="tab-bar">
+			<ul>
+				<li>选项1</li>
+				<li>选项2</li>
+			</ul>
+		</div>
+		
+		<div class="tab-content-container">
+			<div class="tab-content">
+				<div>
+					111111111111111
+				</div>
+				<div>
+					22222222222222
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	javaex.tab({
+		id : "tab2",	// tab的id
+		type : "vertical",
+		callback: function (rtn) {
+			console.log(rtn.index);
+		}
+	});
+</script>
+</html>

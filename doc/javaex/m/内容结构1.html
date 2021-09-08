@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>内容结构</title>
+<script src="../js/ui.m.js"></script>
+</head>
+<body>
+	<!--顶部-->
+	<!--如果你想让顶部元素固定，就为该元素添加 id="javaex-header"-->
+	<div id="javaex-header" class="header">
+		<a class="left" href="#"><span class="icon-storage"></span></a>
+		<span>Javaex</span>
+		<a href="#" class="right"><span class="icon-search"></span></a>
+	</div>
+	
+	<!--中间内容区域-->
+	<div class="list-content" style="margin-top:1.25rem;margin-bottom:1.25rem;">
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>我是标题</span>
+				<!--右侧链接-->
+				<span class="subtitle">
+					<a href="#">
+						<!--请注意图片的路径-->
+						<img src="../javaex/m/images/more.png" />
+					</a>
+				</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				这里可以填写正文内容
+				<!--分割线-->
+				<p class="divider"></p>
+				<!--左右结构-->
+				<div class="left-right">
+					<span>左侧内容</span>
+					<span>右侧内容</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--底部固定-->
+	<!--
+		如果你想让底部元素固定，就为该元素添加 id="javaex-footer"
+	-->
+	<div id="javaex-footer" class="footer-ul">
+		<ul class="equal-5">
+			<!--为li添加active属性，可以高亮-->
+			<li class="active"><span class="icon-home"></span><br>首页</li>
+			<li><span class="icon-cast"></span><br>板块</li>
+			<li><span class="icon-edit-2"></span><br>发帖</li>
+			<li><span class="icon-compass"></span><br>发现</li>
+			<li><span class="icon-user-o"></span><br>我的</li>
+			<span class="clearfix"></span>
+		</ul>
+	</div>
+</body>
+</html>

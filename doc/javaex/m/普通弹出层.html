@@ -1,0 +1,136 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>普通弹出层</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>普通弹出层</h4>
+		<hr>
+
+		<div class="grid-7-2-1">
+			<div>
+				<h5>确认框代码</h5>
+		<pre><code class="html">&lt;button id="demo1" class="button blue"&gt;确认框&lt;/button&gt;
+
+&lt;script&gt;
+	$("#demo1").click(function() {
+		javaex.alert({
+			content : "我是来测试的",
+			callback : "callback()"
+		});
+	});
+
+	function callback() {
+		alert("我是回调函数");
+		// 如果你想阻止弹出层关闭，直接 return false; 即可
+		//return false;
+	}
+&lt;/script&gt;</code></pre>
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>content</td>
+							<td></td>
+							<td>弹出层内容</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>confirmName</td>
+							<td>确定</td>
+							<td>确定按钮名称</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>callback</td>
+							<td></td>
+							<td>点击确定按钮后的回调函数</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p class="divhr"></p>
+
+				<h5>确认选择框代码</h5>
+			<pre><code class="html">&lt;button id="demo2" class="button blue"&gt;确认选择框&lt;/button&gt;
+
+	&lt;script&gt;
+		$("#demo2").click(function() {
+			javaex.confirm({
+				content : "确定要删除么？",
+				callback : "callback()"
+			});
+		});
+
+		function callback() {
+			alert("我是回调函数");
+			// 如果你想阻止弹出层关闭，直接 return false; 即可
+			//return false;
+		}
+	&lt;/script&gt;</code></pre>
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>content</td>
+							<td></td>
+							<td>弹出层内容</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>confirmName</td>
+							<td>确定</td>
+							<td>确定按钮名称</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>cancelName</td>
+							<td>取消</td>
+							<td>取消按钮名称</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>callback</td>
+							<td></td>
+							<td>点击确定按钮后的回调函数</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="普通弹出层1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

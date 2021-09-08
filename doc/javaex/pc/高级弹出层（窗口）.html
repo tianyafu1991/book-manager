@@ -1,0 +1,224 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>高级弹出层（窗口）</title>
+<script src="../js/ui.js"></script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>高级弹出层（窗口）</h4>
+		<hr>
+		
+		<p class="javaex-toast" style="margin-bottom:20px;">内嵌页面或网址或请求地址</p>
+		<button id="demo1" class="javaex-btn blue" style="margin-left: 20px;">可以最大化、最小化，适用于嵌入ifram表单</button><br/>
+		<button id="demo2" class="javaex-btn blue" style="margin-left: 20px;margin-top:10px;">和单图片弹窗类似，适用于登录窗口</button><br/>
+		<button id="demo3" class="javaex-btn blue" style="margin-left: 20px;margin-top:10px;">带标题，不支持最大化、最小化，适用于嵌入ifram表单</button><br/>
+		<h5>代码</h5>
+		<pre><code class="html">&lt;script&gt;
+	$("#demo1").click(function() {
+		javaex.dialog({
+			type : "window",
+			id : "test",	// 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+			url : "https://www.baidu.com/",	// 页面地址或网址或请求地址
+			width : "800",	// 弹出层宽度
+			height : "600",	// 弹出层高度
+			hasBackground : true,
+			close : function() {
+				console.log("右上角点击X关闭时的回调");
+				// 如果你想阻止弹出层关闭，直接 return false; 即可
+				// return false;
+			}
+		});
+	});
+	
+	$("#demo2").click(function() {
+		javaex.dialog({
+			type : "dialog",
+			id : "test",	// 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+			url : "https://www.baidu.com/",	// 页面地址或网址或请求地址
+			width : "800",	// 弹出层宽度
+			height : "600",	// 弹出层高度
+			close : function() {
+				console.log("右上角点击X关闭时的回调");
+				// 如果你想阻止弹出层关闭，直接 return false; 即可
+				// return false;
+			}
+		});
+	});
+
+	$("#demo3").click(function() {
+		javaex.dialog({
+			type : "dialog",
+			title : "添加",
+			id : "test",	// 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+			url : "https://www.baidu.com/",	// 页面地址或网址或请求地址
+			width : "800",	// 弹出层宽度
+			height : "600",	// 弹出层高度
+			close : function() {
+				console.log("右上角点击X关闭时的回调");
+				// 如果你想阻止弹出层关闭，直接 return false; 即可
+				// return false;
+			}
+		});
+	});
+
+	function callback() {
+		alert("回调函数");
+	}
+&lt;/script&gt;</code></pre>
+
+		<h5>参数说明</h5>
+		<table class="javaex-table">
+			<thead>
+				<tr>
+					<th>参数</th>
+					<th>默认值</th>
+					<th>说明</th>
+					<th>版本</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>type</td>
+					<td></td>
+					<td>window或dialog</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>mask</td>
+					<td>true</td>
+					<td>是否使用遮罩。如果你想无限弹窗，必须将mask设置为false</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td></td>
+					<td>指定id，仅在当页面存在多个弹出层，需要关闭指定弹出层时才使用。配合parent.javaex.close(id);使用</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td>温馨提示</td>
+					<td>弹出层标题</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>url</td>
+					<td></td>
+					<td>页面地址或网址或请求地址</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>width</td>
+					<td>300</td>
+					<td>弹出层的宽度</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>height</td>
+					<td></td>
+					<td>弹出层的高度</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>scrolling</td>
+					<td>yes</td>
+					<td>是否允许有滚动条。yes：有；no：没有</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>hasBackground</td>
+					<td>false</td>
+					<td>是否有预加载图片。该图片不会消失，除非你的内容可以覆盖整个弹出层，例如嵌入播放器，否则不要设置为true</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>isClickMaskClose</td>
+					<td>false</td>
+					<td>是否允许点击遮罩关闭弹窗</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>offsetLeft</td>
+					<td>0</td>
+					<td>偏移左边多少像素</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>offsetTop</td>
+					<td>0</td>
+					<td>偏移上边多少像素</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>close</td>
+					<td></td>
+					<td>右上角点击X关闭时的回调</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>callback</td>
+					<td></td>
+					<td>打开弹窗后的回调函数<pre><code>callback : function() {
+	console.log("弹窗已打开");
+}</code></pre></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	$("#demo1").click(function() {
+		javaex.dialog({
+			type : "window",
+			id : "test",	// 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+			url : "https://www.baidu.com/",	// 页面地址或网址或请求地址
+			width : "800",	// 弹出层宽度
+			height : "600",	// 弹出层高度
+			hasBackground : true,
+			close : function() {
+				console.log("右上角点击X关闭时的回调");
+				// 如果你想阻止弹出层关闭，直接 return false; 即可
+				// return false;
+			}
+		});
+	});
+	
+	$("#demo2").click(function() {
+		javaex.dialog({
+			type : "dialog",
+			id : "test",	// 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+			url : "https://www.baidu.com/",	// 页面地址或网址或请求地址
+			width : "800",	// 弹出层宽度
+			height : "600",	// 弹出层高度
+			close : function() {
+				console.log("右上角点击X关闭时的回调");
+				// 如果你想阻止弹出层关闭，直接 return false; 即可
+				// return false;
+			}
+		});
+	});
+
+	$("#demo3").click(function() {
+		javaex.dialog({
+			type : "dialog",
+			title : "添加",
+			id : "test",	// 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+			url : "https://www.baidu.com/",	// 页面地址或网址或请求地址
+			width : "800",	// 弹出层宽度
+			height : "600",	// 弹出层高度
+			close : function() {
+				console.log("右上角点击X关闭时的回调");
+				// 如果你想阻止弹出层关闭，直接 return false; 即可
+				// return false;
+			}
+		});
+	});
+
+	function callback() {
+		alert("回调函数");
+	}
+</script>
+</html>

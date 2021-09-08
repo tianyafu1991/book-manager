@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>操作提示层</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>操作提示层</h4>
+		<hr>
+
+		<div class="grid-7-2-1">
+			<div>
+				<h5>提交中提示（该提示不会自动消失，调用成功或失败时会自动消失，亦可使用javaex.close();来手动关闭）</h5>
+			<pre><code class="html">&lt;button id="demo1" class="button blue"&gt;提交中提示&lt;/button&gt;
+
+&lt;script&gt;
+	$("#demo1").click(function() {
+		javaex.tip({
+			content : "提交中...",
+			type : "loading"
+		});
+	});
+&lt;/script&gt;
+</code></pre>
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>content</td>
+							<td></td>
+							<td>加载说明</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>type</td>
+							<td></td>
+							<td>弹出层类型</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p class="divhr"></p>
+				
+				<h5>提示层代码</h5>
+			<pre><code class="html">&lt;button id="demo2" class="button blue"&gt;提示层&lt;/button&gt;
+
+&lt;script&gt;
+	$("#demo2").click(function() {
+		javaex.tip({
+			content : "我是提示层"
+		});
+	});
+&lt;/script&gt;</code></pre>
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>content</td>
+							<td></td>
+							<td>提示内容</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>live</td>
+							<td>2000</td>
+							<td>多少毫秒后消失。1000毫秒=1秒</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>marginTop</td>
+							<td></td>
+							<td>距离顶部的距离（可以是20%或20px之类的）<font color="red">如果你不想居中，可以设置该值</font></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>marginBottom</td>
+							<td></td>
+							<td>距离底部的距离（可以是20%或20px之类的）<font color="red">如果你不想居中，可以设置该值</font></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>mask</td>
+							<td>true</td>
+							<td>是否有遮罩，没有时，可以点击页面的元素（例如，登录页面的校验，你可以取消遮罩，并让该提示层在底部提示，从而让用户可以无需等待再次输入内容）</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="操作提示层1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

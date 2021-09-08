@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>高级弹出层（菜单）</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<button id="demo" class="button blue">菜单样式</button>
+</body>
+<script>
+	$("#demo").click(function() {
+		javaex.dialog({
+			type : "menu",
+			menu : {
+				// 允许加图标等样式，但是最外层必须用单引号包裹
+				'<span class="icon-trash"></span> 删除' : "del()",
+				'<span class="icon-block"></span> 禁用' : "disable()"
+			}
+		});
+	});
+
+	function del() {
+		javaex.confirm({
+			content : "确定要删除么？",
+			callback : "callback()"
+		});
+	}
+	
+	function callback() {
+		alert("点击了确定");
+	}
+	
+	function disable() {
+		alert("点击了禁用");
+	}
+</script>
+</html>

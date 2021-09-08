@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>日期时间</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>日期时间</h4>
+		<hr>
+		
+		<div class="word">
+			可以使用div或span等其他元素来承载日期组件<br />
+			如果你想用框架内置的表单验证插件在表单中对其进行验证。则必须使用input元素来承载，并且将初始化日期设置为空（缺省date属性）。
+		</div>
+
+		<div class="grid-7-2-1">
+			<div>
+				<h5>代码</h5>
+		<pre><code class="html">&lt;input id="date" type="text" placeholder="点击选择" value="" readonly /&gt;
+
+&lt;script&gt;
+	javaex.date({
+		id : "date",
+		// date : "2018-01-01",	// 默认选择的日期
+		// 重新选择日期之后返回一个时间对象
+		callback: function (rtn) {
+			alert(rtn.date);
+		}
+	});
+&lt;/script&gt;</code></pre>
+		
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>id</td>
+							<td></td>
+							<td>承载日期组件的id</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>date</td>
+							<td></td>
+							<td>默认选择的日期</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>callback</td>
+							<td></td>
+							<td>重新选择日期之后返回一个时间对象。必须按照示例上的写</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="日期时间1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

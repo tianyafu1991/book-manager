@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>内容结构</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>内容结构</h4>
+		<hr>
+		
+		<h5>class="block"</h5>
+		<div class="word">
+			该属性修饰的div表示一块内容区域
+		</div>
+		
+		<h5>class="banner"</h5>
+		<div class="word">
+			该属性修饰的div表示块元素的名称，是专门用来修饰class="block"的，写在class="block"内。可以缺省<br />
+		</div>
+		
+		<h5>class="main"</h5>
+		<div class="word">
+			该属性修饰的div表示填写正文内容，写在class="block"内，与class="banner"同级<br />
+			该属性的div会产生10px的内边距
+		</div>
+		
+		<h5>完整结构代码</h5>
+		<pre><code class="html">&lt;!--内容区域--&gt;
+&lt;div class="list-content"&gt;
+	&lt;!--块元素--&gt;
+	&lt;div class="block"&gt;
+		&lt;!--用来修饰块元素的--&gt;
+		&lt;div class="banner"&gt;
+			&lt;!--左侧标题--&gt;
+			&lt;span&gt;我是标题&lt;/span&gt;
+			&lt;!--右侧链接--&gt;
+			&lt;span class="subtitle"&gt;
+				&lt;a href="#"&gt;
+					&lt;!--请注意图片的路径--&gt;
+					&lt;img src="../javaex/m/images/more.png" /&gt;
+				&lt;/a&gt;
+			&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;!--正文内容--&gt;
+		&lt;div class="main"&gt;
+			这里可以填写正文内容
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>演示代码</h5>
+		<pre><code class="html">&lt;!--顶部--&gt;
+&lt;div id="javaex-header" class="header"&gt;
+	&lt;a class="left" href="#"&gt;&lt;span class="icon-storage"&gt;&lt;/span&gt;&lt;/a&gt;
+	&lt;span&gt;Javaex&lt;/span&gt;
+	&lt;a href="#" class="right"&gt;&lt;span class="icon-search"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!--中间内容区域--&gt;
+&lt;div class="list-content" style="margin-top:1.2rem;margin-bottom:1.25rem;"&gt;
+	&lt;!--块元素--&gt;
+	&lt;div class="block"&gt;
+		&lt;!--用来修饰块元素的--&gt;
+		&lt;div class="banner"&gt;
+			&lt;!--左侧标题--&gt;
+			&lt;span&gt;我是标题&lt;/span&gt;
+			&lt;!--右侧链接--&gt;
+			&lt;span class="subtitle"&gt;
+				&lt;a href="#"&gt;
+					&lt;!--请注意图片的路径--&gt;
+					&lt;img src="../javaex/m/images/more.png" /&gt;
+				&lt;/a&gt;
+			&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;!--正文内容--&gt;
+		&lt;div class="main"&gt;
+			这里可以填写正文内容
+			&lt;!--分割线--&gt;
+			&lt;p class="divider"&gt;&lt;/p&gt;
+			&lt;!--左右结构--&gt;
+			&lt;div class="left-right"&gt;
+				&lt;span&gt;左侧内容&lt;/span&gt;
+				&lt;span&gt;右侧内容&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--底部--&gt;
+&lt;div id="javaex-footer" class="footer-ul"&gt;
+	&lt;ul class="equal-5"&gt;
+		&lt;!--为li添加active属性，可以高亮--&gt;
+		&lt;li class="active"&gt;&lt;span class="icon-home"&gt;&lt;/span&gt;&lt;br&gt;首页&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-cast"&gt;&lt;/span&gt;&lt;br&gt;板块&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-edit-2"&gt;&lt;/span&gt;&lt;br&gt;发帖&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-compass"&gt;&lt;/span&gt;&lt;br&gt;发现&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-user-o"&gt;&lt;/span&gt;&lt;br&gt;我的&lt;/li&gt;
+		&lt;span class="clearfix"&gt;&lt;/span&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+			<div>
+				<h5>内容结构演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="内容结构1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

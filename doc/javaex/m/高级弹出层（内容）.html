@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>高级弹出层（内容）</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>高级弹出层（内容）</h4>
+		<hr>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>代码</h5>
+		<pre><code class="html">&lt;body&gt;
+	&lt;button id="demo" class="button blue"&gt;自定义内容样式&lt;/button&gt;
+	
+	&lt;!--请将正常编写的html代码复制到模板引擎下，这样就不用js拼接html代码了--&gt;
+	&lt;!--注意：模板引擎是写在&lt;body&gt;&lt;/body&gt;中的--&gt;
+	&lt;script id="html" type="text/javaex-template"&gt;  
+		&lt;!--模板引擎中的html若想调用js函数，需要直接设置onclick才行--&gt;
+		&lt;!--模板引擎中调用的js函数不要写在模板引擎中--&gt;
+		&lt;input type="button" onclick="test()" class="button green full" value="测试" /&gt;
+	&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+	$("#demo").click(function() {
+		javaex.dialog({
+			type : "html",
+			fill : "auto",
+			title : "我是标题",
+			content : $("#html").html(),	// 根据模板引擎的id获取内容
+			// scriptArr : ["../javaex/m/js/common.js"],	// 需要加载的JS数组
+			isShowCloseBtn : true			// 是否显示底部的关闭按钮
+		});
+	});
+	
+	// 模板引擎中的按钮会调用该函数
+	function test() {
+		javaex.tip({
+			content : "我是提示层"
+		});
+	}
+&lt;/script&gt;</code></pre>
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>type</td>
+							<td></td>
+							<td>弹出层类型。必须填 html</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>fill</td>
+							<td>auto</td>
+							<td>
+								弹出层高度<br />
+								auto：根据内容自适应弹出一定高度<br />
+								100%：撑满整个屏幕<br />
+								10%、13%...（数值自定义）：弹出高度距离顶部差百分之多少
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>title</td>
+							<td></td>
+							<td>弹出层的标题。没有标题时，不显示标题栏</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>content</td>
+							<td></td>
+							<td>弹出层的内容。如果内容过多，推荐使用示例中的模板引擎编写html代码。也可以自己用JS拼接html代码</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>scriptArr</td>
+							<td></td>
+							<td>
+								需要加载的js（数组形式）<br />
+								因为后拼接的html代码无法使用页面一开始加载的js来对css样式进行控制，所以需要再次加载必要的js<br />
+								额外加载的js只需填写路劲即可，以数组形式
+							</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>isShowCloseBtn</td>
+							<td>true</td>
+							<td>是否显示底部的关闭按钮</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="高级弹出层（内容）1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

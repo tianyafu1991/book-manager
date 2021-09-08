@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RouteController {
 
     /**
-     * 跳转登录
+     * 跳转到登录页 这里指定了3个url路径都指向登录页 分别为: /  /login /logout
      */
     @ApiOperation("跳转登录页")
     @GetMapping({"/login","/","logout"})

@@ -1,0 +1,146 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>选项卡切换</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>选项卡切换</h4>
+		<hr>
+
+		<div class="grid-7-2-1">
+			<div>
+				<h5>水平代码</h5>
+				<pre><code class="html">&lt;!--选项卡切换--&gt;
+&lt;!--选项卡标题部分--&gt;
+&lt;div id="tab" class="tab-title"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;周一更新&lt;/li&gt;
+		&lt;li&gt;周二更新&lt;/li&gt;
+		&lt;li&gt;周三更新&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--选项卡内容部分--&gt;
+&lt;div class="tab-content"&gt;
+	&lt;div&gt;星期一&lt;/div&gt;
+	&lt;div&gt;星期二&lt;/div&gt;
+	&lt;div&gt;星期三&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	javaex.tab({
+		id : "tab",	// tab的id
+		// 切换选项卡后返回一个对象，包含选项卡的索引，从1开始计
+		callback: function (rtn) {
+			console.log(rtn.index);
+		}
+	});
+&lt;/script&gt;</code></pre>
+				
+				<h5>垂直代码</h5>
+				<pre><code class="html">&lt;div class="tab-container"&gt;
+	&lt;div id="tab2" class="tab-bar"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;选项1&lt;/li&gt;
+			&lt;li&gt;选项2&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	
+	&lt;div class="tab-content-container"&gt;
+		&lt;div class="tab-content"&gt;
+			&lt;div&gt;
+				111111111111111
+			&lt;/div&gt;
+			&lt;div&gt;
+				22222222222222
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	javaex.tab({
+		id : "tab2",	// tab的id
+		type : "vertical",
+		callback: function (rtn) {
+			console.log(rtn.index);
+		}
+	});
+&lt;/script&gt;
+</code></pre>
+
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>id</td>
+							<td></td>
+							<td>选项卡id</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>current</td>
+							<td>1</td>
+							<td>默认选中第几个标签，从1开始计</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>isInit</td>
+							<td>false</td>
+							<td>是否初始化就自动调用回调函数</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>type</td>
+							<td>level</td>
+							<td>水平：level；垂直：vertical</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>hasUnderline</td>
+							<td>true</td>
+							<td>选中项是否含有下划线</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>callback</td>
+							<td></td>
+							<td>返回的对象中包含了选项卡的索引，从1开始计</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>水平演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="选项卡切换1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+
+				<h5>垂直演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="选项卡切换2.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

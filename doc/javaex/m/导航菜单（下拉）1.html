@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航菜单（下拉）</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<!--下拉菜单-->
+	<nav id="guide-nav">
+		<ul>
+			<li class="active"><a>首页</a></li>
+			<li><a href="#">电视剧</a></li>
+			<li><a href="#">电影</a></li>
+			<li><a href="#">动漫</a></li>
+			<li><a href="#">日志</a></li>
+			<li><a href="#">收藏</a></li>
+			<li><a href="#">动画</a></li>
+			<li><a href="#">国产</a></li>
+			<li><a href="#">音乐</a></li>
+			<li><a href="#">科技</a></li>
+			<li><a href="#">体育</a></li>
+			<li><a href="#">合辑</a></li>
+			<button class="more" onclick="showGuideNav()"><span>...</span></button>
+		</ul>
+	</nav>
+</body>
+<script>
+	function showGuideNav() {
+		javaex.nav({
+			type : "guide"
+		});
+	}
+</script>
+</html>

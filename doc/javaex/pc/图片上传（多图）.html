@@ -1,0 +1,260 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片上传（多图）</title>
+<script src="../js/ui.js"></script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>图片上传（多图，后台写法和单图上传一样，一次上传多张时，会自动向后台发起多次请求）</h4>
+		<hr>
+		
+		<div class="javaex-block has-border">
+			<div class="javaex-main">
+				<a href="javascript:;" class="javaex-file-container javaex-btn blue">
+					选择图片
+					<input type="file" class="javaex-file" id="upload" multiple accept="image/gif, image/jpeg, image/jpg, image/png" />
+				</a>
+				<p class="javaex-hint">最多上传3张图片，每张图片大小不能超过500kb</p>
+				<!-- 图片存储容器 -->
+				<ul id="container" class="javaex-images-container clear"></ul>
+			</div>
+		</div>
+		
+		<h5>代码（base64）</h5>
+		<pre><code>&lt;div class="javaex-block has-border"&gt;
+	&lt;div class="javaex-main"&gt;
+		&lt;a href="javascript:;" class="javaex-file-container javaex-btn blue"&gt;
+			选择图片
+			&lt;input type="file" class="javaex-file" id="upload" multiple accept="image/gif, image/jpeg, image/jpg, image/png" /&gt;
+		&lt;/a&gt;
+		&lt;p class="javaex-hint"&gt;最多上传3张图片，每张图片大小不能超过500kb&lt;/p&gt;
+		&lt;!-- 图片存储容器 --&gt;
+		&lt;ul id="container" class="javaex-images-container clear"&gt;&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	javaex.upload({
+		type : "images",
+		id : "upload",	// &lt;input type="file" /&gt;的id
+		containerId : "container",	// 图片承载容器的id
+		maxNum : 3,			// 文件上传数量上限
+		imgArr : null,		// 回显图片（包含图片地址的 数组 或 List。切记：不能用引号包裹起来）
+		width : 120,		// 显示的小图的宽度（单位：像素）
+		height : 120,		// 显示的小图的高度（单位：像素）
+		dataType : "base64",	// 返回的数据类型：base64
+		callback : function (rtn) {
+			// 返回图片的base64数组，初始化回显图片也会返回
+			console.log(rtn);
+		}
+	});
+&lt;/script&gt;</code></pre>
+
+		<p class="divhr"></p>
+		
+		<h5>代码（url）</h5>
+		<pre><code>&lt;div class="javaex-block has-border"&gt;
+	&lt;div class="javaex-main"&gt;
+		&lt;a href="javascript:;" class="javaex-file-container javaex-btn blue"&gt;
+			选择图片
+			&lt;input type="file" class="javaex-file" id="upload" multiple accept="image/gif, image/jpeg, image/jpg, image/png" /&gt;
+		&lt;/a&gt;
+		&lt;p class="javaex-hint"&gt;最多上传3张图片，每张图片大小不能超过500kb&lt;/p&gt;
+		&lt;!-- 图片存储容器 --&gt;
+		&lt;ul id="container" class="javaex-images-container clear"&gt;&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	javaex.upload({
+		type : "images",
+		id : "upload",	// &lt;input type="file" /&gt;的id
+		containerId : "container",	// 图片承载容器的id
+		image : {
+			url : "http://127.0.0.1/qiniu/uploadImage.json",	// 请求路径
+			rtn : "rtnData",	// 后台返回的数据对象，在前面页面用该名字存储
+			imgUrl : "data.imgUrl"	// 根据返回的数据对象，获取图片地址。  例如后台返回的数据为：{code: "000000", message: "操作成功！", data: {imgUrl: "/1.jpg"}}
+		},
+		param : {
+			"file" : "file",    // 参数名称，左边的 "file" 是固定必须的。   右边的 "file"是参数名，Spring中与MultipartFile的参数名保持一致
+			"projectId" : projectId,    // 除了file这个key，其他都是MultipartFile以外的参数（自定义）
+			"type" : "2"
+		},
+		maxNum : 3,		// 文件上传数量上限
+		imgArr : null,		// 回显图片（包含图片地址的 数组 或 List。切记：不能用引号包裹起来）
+		width : 120,		// 显示的小图的宽度（单位：像素）
+		height : 120,		// 显示的小图的高度（单位：像素）
+		dataType : "url",	// 返回的数据类型：url
+		callback : function (rtn) {
+			// 返回图片的url数组，初始化回显图片也会返回
+			console.log(rtn);
+		}
+	});
+&lt;/script&gt;</code></pre>
+
+		<p class="divhr"></p>
+
+		<h5>参数说明</h5>
+		<table class="javaex-table">
+			<thead>
+				<tr>
+					<th>参数</th>
+					<th>默认值</th>
+					<th>说明</th>
+					<th style="width:200px;">版本</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>type</td>
+					<td></td>
+					<td>必须是 images</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td></td>
+					<td>&lt;input type="file" /&gt;的id</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>containerId</td>
+					<td></td>
+					<td>图片承载容器的id</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>image</td>
+					<td></td>
+					<td>
+						图片上传的一些属性设置<br />
+						image : {<br />
+							url : "${pageContext.request.contextPath}/upload/upload.json",	// 请求路径<br />
+							rtn : "rtnData",		// 后台返回的数据对象，在前面页面用该名字存储<br />
+							imgUrl : "data.imgUrl"	// 根据返回的数据对象，获取图片地址。  例如后台返回的数据为：{code: "000000", message: "操作成功！", data: {imgUrl: "/1.jpg"}}<br />
+						}
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>param</td>
+					<td>{"file":"file"}</td>
+					<td><pre><code>param : {
+	"file" : "file",    // 参数名称，左边的 "file" 是固定必须的。   右边的 "file"是参数名，Spring中与MultipartFile的参数名保持一致
+	"projectId" : projectId,    // 除了file这个key，其他都是MultipartFile以外的参数（自定义）
+	"type" : "2"
+}</code></pre></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>header</td>
+					<td></td>
+					<td><pre><code>header : {
+	"token" : "123456",
+	"token2" : "xxxx"
+}</code></pre></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>maxNum</td>
+					<td></td>
+					<td>文件上传数量上限</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>maxSize</td>
+					<td></td>
+					<td>单张图片的大小上限，单位KB，0或空为不限制</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>imgArr</td>
+					<td></td>
+					<td>回显图片（包含图片地址的 数组 或 List。切记：不能用引号包裹起来）</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>width</td>
+					<td>100</td>
+					<td>显示的小图的宽度（单位：像素）</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>height</td>
+					<td>100</td>
+					<td>显示的小图的高度（单位：像素）</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>dataType</td>
+					<td>base64</td>
+					<td>返回的数据类型：base64或url（将图片上传到服务器）</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>callback</td>
+					<td></td>
+					<td>返回图片的base64数组</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<p class="divhr"></p>
+		
+		<h5>java回显图片示例</h5>
+		<pre><code class="html">// 依赖jar包
+&lt;!-- list集合转json格式 --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+	&lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+	&lt;version&gt;2.4&lt;/version&gt;
+	&lt;classifier&gt;jdk15&lt;/classifier&gt;
+&lt;/dependency&gt;
+
+// java代码
+import net.sf.json.JSONArray;
+
+// 转为json格式，方便js调用
+JSONArray jsonList = JSONArray.fromObject(imgList);
+map.put("jsonList", jsonList);
+
+// 前台js回显
+&lt;script&gt;
+	var imgList = eval('${jsonList}');
+	javaex.upload({
+		type : "images",
+		id : "upload",	// &lt;input type="file" /&gt;的id
+		containerId : "container",	// 图片承载容器的id
+		maxNum : 5,			// 文件上传数量上限
+		imgArr : imgList,		// 回显图片（包含图片地址的 数组 或 List。切记：不能用引号包裹起来）
+		width : 120,		// 显示的小图的宽度（单位：像素）
+		height : 120,		// 显示的小图的高度（单位：像素）
+		dataType : "base64",	// 返回的数据类型：base64
+		callback : function (rtn) {
+			console.log(rtn);
+		}
+	});
+&lt;/script&gt;</code></pre>
+
+	</div>
+</body>
+<script>
+	javaex.upload({
+		type : "images",
+		id : "upload",	// <input type="file" />的id
+		containerId : "container",	// 图片承载容器的id
+		maxNum : 3,			// 文件上传数量上限
+		imgArr : null,		// 回显图片（包含图片地址的 数组 或 List。切记：不能用引号包裹起来）
+		width : 120,		// 显示的小图的宽度（单位：像素）
+		height : 120,		// 显示的小图的高度（单位：像素）
+		dataType : "base64",	// 返回的数据类型：base64
+		callback : function (rtn) {
+			// 返回图片的base64数组
+			console.log(rtn);
+		}
+	});
+</script>
+</html>

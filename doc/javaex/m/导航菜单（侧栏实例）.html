@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航菜单（侧栏）</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<!--顶部-->
+	<!--如果你想让顶部元素固定，就在外面套一层<div id="header"></div>-->
+	<div id="header">
+		<div class="header">
+			<a class="left" href="#" onclick="showSlideNav()"><span class="icon-list"></span></a>
+			<img class="mid" src="../javaex/m/images/logo.png">
+			<a href="#" class="right"><span class="icon-search"></span></a>
+		</div>
+	</div>
+
+	<!--左侧滑动菜单-->
+	<div id="slide-nav">
+		<!--上：用户信息-->
+		<div id="slide-head">
+			<!--用户头像及登录链接-->
+			<div class="slide-user">
+				<img src="../javaex/m/images/user_small.gif" />
+				<p>
+					<span class="prompt">
+						<script>
+							var myDate = new Date();
+							var hour = myDate.getHours();
+							if (hour<12) {
+								document.write("早上好! ");
+							} else if (hour>=12 && hour<14) {
+								document.write("中午好! ");
+							} else if (hour>=14 && hour<18) {
+								document.write("下午好! ");
+							} else if (hour>=18) {
+								document.write("晚上好! ");
+							}
+						</script>
+						<!--此处添加登录链接-->
+						<a href="#">请登录</a>
+					</span>
+				</p>
+				<p class="prompt small">登录后更精彩...</p>
+			</div>
+			<!--右下角注册链接-->
+			<div class="slide-regist">
+				<a href="#">
+					<span><i class="icon-log-out"></i>立即注册</span>
+				</a>
+			</div>
+			<!--底部水波特效-->
+			<div class="wave">
+				<div class="wave1"></div>
+				<div class="wave2"></div>
+			</div>
+		</div>
+		<!--中：导航菜单-->
+		<div id="slide-list">
+			<ul>
+				<li><a href="#"><i class="icon-home2" style="color:#3EBBFD;"></i>首页</a></li>
+				<li><a href="#"><i class="icon-tv" style="color:#FFB300;"></i>电视剧</a></li>
+				<li><a href="#"><i class="icon-film" style="color:#F37D7D;"></i>电影</a></li>
+				<li><a href="#"><i class="icon-gitlab" style="color:#9DCA08;"></i>动漫</a></li>
+				<li><a href="#"><i class="icon-file-text" style="color:#FF9900;"></i>日志</a></li>
+				<li><a href="#"><i class="icon-folder" style="color:#91B9EB;"></i>我的收藏</a></li>
+				<li><a href="#"><i class="icon-message-circle" style="color:#9DCA08;"></i>回复我的</a></li>
+				<li><a href="#"><i class="icon-share-2" style="color:#DA99DB;"></i>我的分享</a></li>
+				<li><a href="#"><i class="icon-tag" style="color:#91B9EB;"></i>标签</a></li>
+				<li><a href="#"><i class="icon-camera" style="color:#FFB300;"></i>相册</a></li>
+				<li><a href="#"><i class="icon-video" style="color:#9DCA08;"></i>放映厅</a></li>
+				<li><a href="#"><i class="icon-navigation" style="color:#3EBBFD;"></i>访问推广</a></li>
+				<li><a href="#"><i class="icon-monitor" style="color:#FF9900;"></i>访问电脑版</a></li>         
+			</ul>
+		</div>
+		<!--下：系统设置-->
+		<div id="slide-bottom">
+			<ul class="equal-3" style="">
+				<li><a href="#"><span class="icon-settings"></span>设置</a></li>
+				<li><a href="#"><span class="icon-alarmclock"></span>提醒</a></li>
+				<li><a href="#"><span class="icon-moon"></span>夜间</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script>
+	function showSlideNav() {
+		javaex.nav({
+			type : "slide"
+		});
+	}
+</script>
+</html>

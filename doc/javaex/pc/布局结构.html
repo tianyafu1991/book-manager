@@ -1,0 +1,234 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>布局结构</title>
+<script src="../js/ui.js"></script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>布局结构</h4>
+		<hr>
+		
+		<h4>工具条</h4>
+		<div style="width:1000px;">
+			<div class="javaex-list-toolbar clear">
+				<span class="fl"><button class="javaex-btn blue">添加</button></span>
+				<span class="fr javaex-search-group">
+					<input type="text" class="javaex-text" id="keyword" placeholder="请输入搜索内容" />
+					<button class="javaex-btn blue">搜索</button>
+				</span>
+			</div>
+		</div>
+		<h5>代码</h5>
+		<pre><code>&lt;div class="javaex-list-toolbar clear"&gt;
+	&lt;span class="fl"&gt;&lt;button class="javaex-btn blue"&gt;添加&lt;/button&gt;&lt;/span&gt;
+	&lt;span class="fr javaex-search-group"&gt;
+		&lt;input type="text" class="javaex-text" id="keyword" placeholder="请输入搜索内容" /&gt;
+		&lt;button class="javaex-btn blue"&gt;搜索&lt;/button&gt;
+	&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+		<h5>参数说明</h5>
+		<table class="javaex-table">
+			<thead>
+				<tr>
+					<th>属性</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>class="javaex-list-toolbar clear"</td>
+					<td>
+						该属性修饰的div会有10px的下外边距<br />
+						主要用来存放后台列表上的操作按钮和查询元素
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<p class="divhr"></p>
+
+		<h4>高级搜索区域</h4>
+		<div style="width:1000px;">
+			<div class="javaex-search-wrapper">
+				<div class="javaex-search-line">
+					<div class="javaex-search-control">
+						域名：<select id="select">
+								<option value="">请选择</option>
+								<option value="1">电影</option>
+								<option value="2">电视剧</option>
+								<option value="3">动漫</option>
+								<option value="4" disabled="disabled">音乐（禁用）</option>
+								<option value="5">综艺</option>
+								<option value="6">新闻</option>
+								<option value="7">搞笑</option>
+								<option value="8">萌宠</option>
+							</select>
+					</div>
+					<div class="javaex-search-control">
+						时间范围：<input type="text" id="date1" class="javaex-date" style="width: 140px;" value="" readonly/>
+					</div>
+					<!-- 确认查询按钮 -->
+					<div class="javaex-search-control javaex-search-submit">
+						<button class="javaex-btn blue">确认查询</button>
+					</div>
+				</div>
+				<div class="javaex-search-line">
+					<div class="javaex-search-control">
+						域名：<select id="select2">
+								<option value="">请选择</option>
+								<option value="1">电影</option>
+								<option value="2">电视剧</option>
+								<option value="3">动漫</option>
+								<option value="4" disabled="disabled">音乐（禁用）</option>
+								<option value="5">综艺</option>
+								<option value="6">新闻</option>
+								<option value="7">搞笑</option>
+								<option value="8">萌宠</option>
+							</select>
+					</div>
+					<div class="javaex-search-control">
+						时间范围：<input type="text" id="date2" class="javaex-date" style="width: 220px;" value="" readonly/>
+					</div>
+				</div>
+			</div>
+			<script>
+				javaex.select({
+					id : "select"
+				});
+				javaex.select({
+					id : "select2"
+				});
+				javaex.date({
+					id : "date1",		// 承载日期组件的id
+					monthNum : 1,		// 1代表选择单日日期
+					date : "2018-01-01",	// 选择的日期
+					callback : function(rtn) {
+						
+					}
+				});
+				javaex.date({
+					id : "date2",		// 承载日期组件的id
+					monthNum : 2,		// 2代表选择范围日期
+					startDate : "2017-08-01",	// 开始日期
+					endDate : "2017-08-20",		// 结束日期
+					callback : function(rtn) {
+						
+					}
+				});
+			</script>
+		</div>
+		<h5>代码</h5>
+		<pre><code>&lt;div class="javaex-search-wrapper"&gt;
+	&lt;div class="javaex-search-line"&gt;
+		&lt;div class="javaex-search-control"&gt;
+			域名：&lt;select id="select"&gt;...&lt;/select&gt;
+		&lt;/div&gt;
+		&lt;div class="javaex-search-control"&gt;
+			时间范围：&lt;input type="text" id="date1" class="javaex-date" style="width: 140px;" value="" readonly/&gt;
+		&lt;/div&gt;
+		&lt;!-- 确认查询按钮 --&gt;
+		&lt;div class="javaex-search-control javaex-search-submit"&gt;
+			&lt;button class="javaex-btn blue"&gt;确认查询&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="javaex-search-line"&gt;
+		&lt;div class="javaex-search-control"&gt;
+			...
+		&lt;/div&gt;
+		&lt;div class="javaex-search-control"&gt;
+			...
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		
+		<p class="divhr"></p>
+		
+		<h4>块元素</h4>
+		<div style="width:1000px;">
+			<div class="javaex-block has-border">
+				<div class="javaex-banner"><span class="javaex-block-fixed"></span>标题</div>
+				<div class="javaex-main-10">
+					<p class="javaex-toast">
+						测试文字<br />
+						测试文字测试文字测试文字测试文字
+					</p>
+					<hr class="javaex-divider"/>
+					<p class="javaex-toast">
+						测试文字<br />
+						测试文字测试文字测试文字测试文字
+					</p>
+				</div>
+			</div>
+		</div>
+		<h5>代码</h5>
+		<pre><code>&lt;div class="javaex-block has-border"&gt;
+	&lt;div class="javaex-banner"&gt;&lt;span class="javaex-block-fixed"&gt;&lt;/span&gt;标题&lt;/div&gt;
+	&lt;div class="javaex-main-10"&gt;
+		&lt;p class="javaex-toast"&gt;
+			测试文字&lt;br /&gt;
+			测试文字测试文字测试文字测试文字
+		&lt;/p&gt;
+		&lt;hr class="javaex-divider"/&gt;
+		&lt;p class="javaex-toast"&gt;
+			测试文字&lt;br /&gt;
+			测试文字测试文字测试文字测试文字
+		&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<h5>参数说明</h5>
+		<table class="javaex-table">
+			<thead>
+				<tr>
+					<th>属性</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>class="javaex-block"</td>
+					<td>该属性修饰的div表示一块内容区域<br/>追加 has-border 属性可以追加边框。 写法：class="javaex-block has-border"</td>
+				</tr>
+				<tr>
+					<td>class="javaex-banner"</td>
+					<td>该属性修饰的div表示块元素的名称，是专门用来修饰class="javaex-block"的，写在class="javaex-block"内。可以缺省</td>
+				</tr>
+				<tr>
+					<td>class="javaex-block-fixed"</td>
+					<td>添加该代码，可以在标题前多加一根竖线</td>
+				</tr>
+				<tr>
+					<td>class="javaex-main" 或 class="javaex-main-10"</td>
+					<td>
+						该属性修饰的div表示填写正文内容，写在class="javaex-block"内，与class="javaex-banner"同级<br/>
+						该属性的div会产生20px的内边距<br/>
+						class="javaex-main-10"会产生10px的内边距<br/>
+						可以缺省
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<p class="divhr"></p>
+
+		<h4>底部固定（详细说明请看视频教程）</h4>
+		<pre><code class="html">&lt;div class="javaex-page-wrap"&gt;
+	&lt;div class="javaex-page-content"&gt;
+		&lt;div class="javaex-page-header"&gt;
+			// header这个div可以不需要
+			// header默认有20px的左右内边距，其他样式根据实际情况自己添加
+		&lt;/div&gt;
+
+		&lt;div class="javaex-page-body"&gt;
+			// 主体内容
+		&lt;/div&gt;
+		
+		&lt;div class="javaex-page-footer"&gt;
+			// 底部固定
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</body>
+</html>

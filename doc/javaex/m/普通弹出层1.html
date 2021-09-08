@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>普通弹出层</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<button id="demo1" class="button blue">确认框</button>
+	<button id="demo2" class="button blue">确认选择框</button>
+</body>
+<script>
+	$("#demo1").click(function() {
+		javaex.alert({
+			content : "我是来测试的",
+			callback : "callback()"
+		});
+	});
+
+	$("#demo2").click(function() {
+		javaex.confirm({
+			content : "确定要删除么？",
+			callback : "callback()"
+		});
+	});
+
+	function callback() {
+		alert("我是回调函数");
+		// 如果你想阻止弹出层关闭，直接 return false; 即可
+		//return false;
+	}
+</script>
+</html>

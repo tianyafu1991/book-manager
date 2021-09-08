@@ -1,0 +1,270 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>上滑加载</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>上滑加载（分页）</h4>
+		<hr>
+		
+		<div class="word">
+			默认会先加载数据，直至撑满整个屏幕。其后上滑到底部后再次请求数据并加载<br />
+			底部有固定区域时，框架会自适应，无须担心
+		</div>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>代码（单个分页）</h5>
+		<pre><code class="html">&lt;div id="content" class="list-content"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+	// 页数（这里就是写0）
+	var pageNum = 0;
+	// 每次请求的数据个数
+	var pageSize = 5;
+	
+	// 设置分页初始化属性
+	javaex.setPageInit();
+	// 调用上滑加载组件
+	javaex.page({
+		id : "content",	// 数据区域的id
+		loadDataFunction : function() {
+			pageNum++;
+			// 拼接HTML
+			var resultHtml = '';
+			$.ajax({
+				url : "forum/forumdisplay.json",
+				type : "POST",
+				dataType : "json",
+				data : {
+					"page" : pageNum,
+					"size" : pageSize
+				},
+				success: function(rtn) {
+					// 根据实际数据自行编写下列代码
+					var length = rtn.length;
+					if (length&gt;0) {
+						for (var i=0; i&lt;length; i++) {
+							resultHtml += '&lt;div class="block"&gt;';
+							resultHtml += '&lt;div class="main"&gt;';
+							resultHtml += rtn[i].date;
+							resultHtml += '&lt;/div&gt;';
+							resultHtml += '&lt;/div&gt;';
+						}
+					} else {
+						// 如果没有数据，结束加载（需要传入数据区域的id）
+						javaex.over("content");
+					}
+					// 建议延迟加载
+					setTimeout(function() {
+						// 载入数据
+						$("#content").append(resultHtml);
+						// 每次数据载入后，必须重置（需要传入数据区域的id）
+						javaex.resetLoad("content");
+					}, 1000);
+				}
+			});
+		}
+	});
+&lt;/script&gt;</code></pre>
+			
+			<p class="divhr"></p>
+
+			<h5>代码（基于tab的多个分页）</h5>
+		<pre><code class="html">&lt;!--选项卡切换--&gt;
+&lt;!--选项卡标题部分--&gt;
+&lt;div id="tab" class="tab-title"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;第一个分页&lt;/li&gt;
+		&lt;li&gt;第二个分页&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--选项卡内容部分--&gt;
+&lt;div class="tab-content"&gt;
+	&lt;div&gt;
+		&lt;!--第一个分页内容区域--&gt;
+		&lt;div id="content1" class="list-content"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;!--第二个分页内容区域--&gt;
+		&lt;div id="content2" class="list-content"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	// 第1个分页所必须的参数
+	// 页数（这里就是写0）
+	var pageNum1 = 0;
+	// 每次请求的数据个数
+	var pageSize1 = 5;
+	
+	// 第2个分页所必须的参数
+	// 页数（这里就是写0）
+	var pageNum2 = 0;
+	// 每次请求的数据个数
+	var pageSize2 = 5;
+	
+	javaex.tab({
+		id : "tab",	// tab的id
+		current : 1,
+		callback: function (rtn) {
+			var index = rtn.index;
+			if (index==1) {
+				// 设置分页初始化属性
+				javaex.setPageInit();
+				// 调用上滑加载分页组件
+				javaex.page({
+					id : "content1",	// 数据区域的id
+					loadDataFunction : function() {
+						pageNum1++;
+						// 拼接HTML
+						var resultHtml = '';
+						$.ajax({
+							url : "forum/forumdisplay.json",
+							type : "POST",
+							dataType : "json",
+							data : {
+								"page" : pageNum1,
+								"size" : pageSize1
+							},
+							success: function(rtn) {
+								// 根据实际数据自行编写下列代码
+								var length = rtn.length;
+								if (length&gt;0) {
+									for (var i=0; i&lt;length; i++) {
+										resultHtml += '&lt;div class="block"&gt;';
+										resultHtml += '&lt;div class="main"&gt;';
+										resultHtml += rtn[i].date;
+										resultHtml += '&lt;/div&gt;';
+										resultHtml += '&lt;/div&gt;';
+									}
+								} else {
+									// 如果没有数据，结束加载（需要传入数据区域的id）
+									javaex.over("content1");
+								}
+								// 建议延迟加载
+								setTimeout(function() {
+									// 载入数据
+									$("#content1").append(resultHtml);
+									// 每次数据载入后，必须重置（需要传入数据区域的id）
+									javaex.resetLoad("content1");
+								}, 1000);
+							}
+						});
+					}
+				});
+			} else if (index==2) {
+				// 设置分页初始化属性
+				javaex.setPageInit();
+				// 调用上滑加载组件
+				javaex.page({
+					id : "content2",	// 数据区域的id
+					loadDataFunction : function() {
+						pageNum2++;
+						// 拼接HTML
+						var resultHtml = '';
+						$.ajax({
+							url : "forum/forumdisplay.json",
+							type : "POST",
+							dataType : "json",
+							data : {
+								"page" : pageNum2,
+								"size" : pageSize2
+							},
+							success: function(rtn) {
+								// 根据实际数据自行编写下列代码
+								var length = rtn.length;
+								if (length&gt;0) {
+									for (var i=0; i&lt;length; i++) {
+										resultHtml += '&lt;div class="block"&gt;';
+										resultHtml += '&lt;div class="main"&gt;';
+										resultHtml += rtn[i].date;
+										resultHtml += '&lt;/div&gt;';
+										resultHtml += '&lt;/div&gt;';
+									}
+								} else {
+									// 如果没有数据，结束加载（需要传入数据区域的id）
+									javaex.over("content2");
+								}
+								// 建议延迟加载
+								setTimeout(function() {
+									// 载入数据
+									$("#content2").append(resultHtml);
+									// 每次数据载入后，必须重置（需要传入数据区域的id）
+									javaex.resetLoad("content2");
+								}, 1000);
+							}
+						});
+					}
+				});
+			}
+		}
+	});
+&lt;/script&gt;</code></pre>
+			
+			<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+			<table class="table color2">
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>属性名</th>
+						<th>默认值</th>
+						<th>说明</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>id</td>
+						<td></td>
+						<td>数据区域的id</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>loadData</td>
+						<td>&lt;div class='load-data'&gt; &lt;/div&gt;</td>
+						<td>加载提示</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>noData</td>
+						<td>&lt;div class='no-data'&gt; 没有更多内容了，亲～ &lt;/div&gt;</td>
+						<td>没有更多内容了提示</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>loadDataFunction</td>
+						<td></td>
+						<td>请按照示例填写</td>
+					</tr>
+				</tbody>
+			</table>
+
+		
+			</div>
+			<div>
+				<h5>演示（单个分页）</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="上滑加载1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+				
+				<h5 style="margin-top: 260px;">演示（多个分页）</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="上滑加载2.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

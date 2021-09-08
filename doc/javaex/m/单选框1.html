@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>单选框</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<div class="list-content">
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>普通样式</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				<input type="radio" class="fill" name="radio" />单选框未选中<br>
+				<input type="radio" class="fill" name="radio" checked />单选框选中<br>
+				<input type="radio" class="fill" name="radio" disabled="disabled" />单选框未选中（只读）<br>
+				<input type="radio" class="fill" checked disabled="disabled" />单选框选中（只读）
+			</div>
+		</div>
+		
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>高级样式</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				<input type="radio" class="svg" name="radio2" />单选框未选中
+				<!--分割线-->
+				<p class="divider"></p>
+				<input type="radio" class="svg" name="radio2" checked />单选框选中
+			</div>
+		</div>
+
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>伪单选</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				<!--在label标签上添加class即可（选中和未选中的class不要加）-->
+				<label class="button"><input type="radio" class="fake" name="radio3" value="1" checked/>已选中</label>
+				<label class="button"><input type="radio" class="fake" name="radio3" value="2"/>未选中</label>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	javaex.fakeRadio({
+		name : "radio3",
+		uncheckClass : "wathet", // 未选中时往label标签添加的class
+		checkedClass : "blue", 	// 选中时往label标签添加的class
+		isInit : true,			// 初始化是否自动调用回调函数
+		callback : function(rtn) {
+			// 回调函数，返回选中的值（虽然提供了回调函数，但是依然建议用jquery的原生方式取值）
+			console.log(rtn.val);
+		}
+	});
+	
+	$(':radio[name="radio3"]').change(function() {
+		alert($(this).val());
+	});
+</script>
+</html>

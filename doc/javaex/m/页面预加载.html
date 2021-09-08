@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>页面预加载</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+
+</style>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>页面预加载</h4>
+		<hr>
+		
+		<div class="word">
+			页面渲染太慢时，可以使用该预加载提示作为友情提醒，页面加载完毕后，自动消失
+		</div>
+		
+		<h5>代码</h5>
+		<pre><code class="html">&lt;script&gt;
+	javaex.loading({
+		callback: function () {
+			console.log("页面已加载完毕");
+		}
+	});
+&lt;/script&gt;</code></pre>
+
+		<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+		<table class="table color2">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>属性名</th>
+					<th>默认值</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>callback</td>
+					<td></td>
+					<td>页面加载完毕后，返回一个回调函数，不返回任何内容</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动画效果</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+li {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 25px;
+	padding: 10px 0;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	margin-left: -1px;
+	margin-right: -1px;
+	border: 1px solid #e2e2e2;
+	font-size: 14px;
+	text-align: center;
+	color: #666;
+	transition: all .3s;
+	-webkit-transition: all .3s;
+}
+li:hover{background-color:#F6F7FB;}
+.tip {
+	display: block;
+	margin: 4px auto;
+	padding: 20px;
+	border: 1px solid #bce8f1;
+	border-radius: 2px;
+	background-color: #d9edf7;
+	color: #31708f;
+	width: 130px;
+	text-align: center;
+}
+*{box-sizing:content-box;}
+</style>
+
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>动画效果</h4>
+		<hr>
+		
+		<div class="word">
+			为任意元素添加 class="animated fadeInDown" 即可实现动画效果<br />
+			属性：animated 是固定的，不可更改<br />
+			属性：fadeInDown 指的就是动画效果，可以替换为下列动画效果中的任意一个
+		</div>
+
+		<h5>代码</h5>
+		<pre><code class="html">&lt;!--修改fadeInDown为其他动画属性，可实现不同的动画效果--&gt;
+&lt;div class="animated fadeInDown"&gt;内容&lt;/div&gt;</code></pre>
+
+		<h5>本框架内置动画效果</h5>
+		<div class="block no-shadow">
+			<div class="main">
+				<h1 id="animated" class="" style="text-align: center;">我是来测试的</h1>
+				<br />
+				<ul class="equal-7">
+					<li>
+						<a href="javascript:;" onClick="fadeInDown()"><p class="tip">缓慢降落</p></a>
+						fadeInDown
+					</li>
+					<li>
+						<a href="javascript:;" onClick="shake()"><p class="tip">左右摇晃</p></a>
+						shake
+					</li>
+					<li>
+						<a href="javascript:;" onClick="bounce()"><p class="tip">弹跳</p></a>
+						bounce
+					</li>
+					<li>
+						<a href="javascript:;" onClick="pulse()"><p class="tip">心脏跳动</p></a>
+						pulse
+					</li>
+					<li>
+						<a href="javascript:;" onClick="bounceInDown()"><p class="tip">自由落体并反弹</p></a>
+						bounceInDown
+					</li>
+					<li>
+						<a href="javascript:;" onClick="fadeInLeft()"><p class="tip">左侧飞入</p></a>
+						fadeInLeft
+					</li>
+					<li>
+						<a href="javascript:;" onClick="bounceInLeft()"><p class="tip">左侧飞入并反弹</p></a>
+						bounceInLeft
+					</li>
+					<li>
+						<a href="javascript:;" onClick="fadeInRight()"><p class="tip">右侧飞入</p></a>
+						fadeInRight
+					</li>
+					<li>
+						<a href="javascript:;" onClick="bounceInRight()"><p class="tip">右侧飞入并反弹</p></a>
+						bounceInRight
+					</li>
+					<li>
+						<a href="javascript:;" onClick="fadeInUpSmall()"><p class="tip">小地鼠</p></a>
+						fadeInUpSmall
+					</li>
+					<li>
+						<a href="javascript:;" onClick="fadeInUp()"><p class="tip">地鼠</p></a>
+						fadeInUp
+					</li>
+					<li>
+						<a href="javascript:;" onClick="fadeInUpEX()"><p class="tip">火箭</p></a>
+						fadeInUpEX
+					</li>
+					<li>
+						<a href="javascript:;" onClick="bounceOutLeft()"><p class="tip">向左侧飞出</p></a>
+						bounceOutLeft
+					</li>
+					<li>
+						<a href="javascript:;" onClick="bounceOutRight()"><p class="tip">向右侧飞出</p></a>
+						bounceOutRight
+					</li>
+					<li>
+						<a href="javascript:;" onClick="zoomIn()"><p class="tip">缩放淡入</p></a>
+						zoomIn
+					</li>
+					<li>
+						<a href="javascript:;" onClick="zoomOut()"><p class="tip">缩放淡出</p></a>
+						zoomOut
+					</li>
+					<span class="clearfix"></span>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+		function fadeInDown() {
+			$("#animated").addClass("animated fadeInDown");
+			setTimeout(removeClass, 1000);
+		}
+		function shake() {
+			$("#animated").addClass("animated shake");
+			setTimeout(removeClass, 1000);
+		}
+		function bounce() {
+			$("#animated").addClass("animated bounce");
+			setTimeout(removeClass, 1000);
+		}
+		function pulse() {
+			$("#animated").addClass("animated pulse");
+			setTimeout(removeClass, 1000);
+		}
+		function bounceInDown() {
+			$("#animated").addClass("animated bounceInDown");
+			setTimeout(removeClass, 1000);
+		}
+		function fadeInLeft() {
+			$("#animated").addClass("animated fadeInLeft");
+			setTimeout(removeClass, 1000);
+		}
+		function bounceInLeft() {
+			$("#animated").addClass("animated bounceInLeft");
+			setTimeout(removeClass, 1000);
+		}
+		function fadeInRight() {
+			$("#animated").addClass("animated fadeInRight");
+			setTimeout(removeClass, 1000);
+		}
+		function bounceInRight() {
+			$("#animated").addClass("animated bounceInRight");
+			setTimeout(removeClass, 1000);
+		}
+		function fadeInUpSmall() {
+			$("#animated").addClass("animated fadeInUpSmall");
+			setTimeout(removeClass, 1000);
+		}
+		function fadeInUp() {
+			$("#animated").addClass("animated fadeInUp");
+			setTimeout(removeClass, 1000);
+		}
+		function fadeInUpEX() {
+			$("#animated").addClass("animated fadeInUpEX");
+			setTimeout(removeClass, 1000);
+		}
+		function bounceOutLeft() {
+			$("#animated").addClass("animated bounceOutLeft");
+			setTimeout(removeClass, 1000);
+		}
+		function bounceOutRight() {
+			$("#animated").addClass("animated bounceOutRight");
+			setTimeout(removeClass, 1000);
+		}
+		function zoomIn() {
+			$("#animated").addClass("animated zoomIn");
+			setTimeout(removeClass, 1000);
+		}
+		function zoomOut() {
+			$("#animated").addClass("animated zoomOut");
+			setTimeout(removeClass, 1000);
+		}
+		function removeClass() {
+			$("#animated").removeClass();
+		}
+	</script>
+</html>

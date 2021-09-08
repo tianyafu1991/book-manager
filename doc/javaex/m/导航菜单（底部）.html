@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>导航菜单（底部）</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>导航菜单（底部）</h4>
+		<hr>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>固定样式代码</h5>
+		<pre><code class="html">&lt;!--底部固定--&gt;
+&lt;!--
+	如果你想让底部元素固定，就为该元素添加 id="javaex-footer"
+--&gt;
+&lt;div id="javaex-footer" class="footer-ul"&gt;
+	&lt;ul class="equal-5 clear"&gt;
+		&lt;!--为li添加active属性，可以高亮--&gt;
+		&lt;li class="active"&gt;&lt;span class="icon-home"&gt;&lt;/span&gt;&lt;br&gt;首页&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-cast"&gt;&lt;/span&gt;&lt;br&gt;板块&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-edit-2"&gt;&lt;/span&gt;&lt;br&gt;发帖&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-compass"&gt;&lt;/span&gt;&lt;br&gt;发现&lt;/li&gt;
+		&lt;li&gt;&lt;span class="icon-user-o"&gt;&lt;/span&gt;&lt;br&gt;我的&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+				<div style="margin-top:450px;"></div>
+				<h5>弹出样式代码</h5>
+		<pre><code class="html">&lt;!--底部固定--&gt;
+&lt;!--
+	如果你想让底部元素固定，就为该元素添加 id="javaex-footer"
+--&gt;
+&lt;div id="javaex-footer" class="footer-div"&gt;
+	&lt;!--grid为框架内置的栅格系统--&gt;
+	&lt;div class="grid-1-1-1"&gt;
+		&lt;div&gt;无弹出&lt;/div&gt;
+		&lt;!--有弹出菜单时，必须为div加上 class="javaex-menu"--&gt;
+		&lt;div class="javaex-menu"&gt;
+			弹出菜单2
+			&lt;!--子菜单--&gt;
+			&lt;div class="sub-menu"&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href="javascript:;"&gt;弹出菜单2-1&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="javascript:;"&gt;弹出菜单2-2&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;!--右下角三角图标--&gt;
+			&lt;div class="menu-flag"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;!--有弹出菜单时，必须为div加上 class="javaex-menu"--&gt;
+		&lt;div class="javaex-menu"&gt;
+			弹出菜单3
+			&lt;!--子菜单--&gt;
+			&lt;div class="sub-menu"&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href="javascript:;"&gt;弹出菜单3-1&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="javascript:;"&gt;弹出菜单3-2&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="javascript:;"&gt;弹出菜单3-3&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;!--右下角三角图标--&gt;
+			&lt;div class="menu-flag"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+			<div>
+				<h5>固定样式演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="导航菜单（底部）1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+				
+				<h5>弹出样式演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="导航菜单（底部）2.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

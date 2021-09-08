@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>单选框</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>单选框</h4>
+		<hr>
+		
+		<div class="word">
+			默认点击文字也会勾选，不需要在外面包一层label
+		</div>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>普通样式代码</h5>
+		<pre><code class="html">&lt;input type="radio" class="fill" name="radio" /&gt;单选框未选中
+&lt;input type="radio" class="fill" name="radio" checked /&gt;单选框选中
+&lt;input type="radio" class="fill" name="radio" disabled="disabled" /&gt;单选框未选中（只读）
+&lt;input type="radio" class="fill" checked disabled="disabled" /&gt;单选框选中（只读）</code></pre>
+		
+				<h5>高级样式代码</h5>
+		<pre><code class="html">&lt;input type="radio" class="svg" name="radio2" /&gt;单选框未选中
+&lt;input type="radio" class="svg" name="radio2" checked /&gt;单选框选中</code></pre>
+				
+				<p class="divhr"></p>
+
+				<h5>伪单选代码</h5>
+		<pre><code class="html">&lt;!--在label标签上添加class即可（选中和未选中的class不要加）--&gt;
+&lt;label class="button"&gt;&lt;input type="radio" class="fake" name="radio3" value="1" checked/&gt;已选中&lt;/label&gt;
+&lt;label class="button"&gt;&lt;input type="radio" class="fake" name="radio3" value="2"/&gt;未选中&lt;/label&gt;
+
+&lt;script&gt;
+	javaex.fakeRadio({
+		name : "radio3",
+		uncheckClass : "wathet", // 未选中时往label标签添加的class
+		checkedClass : "blue", 	// 选中时往label标签添加的class
+		isInit : true,			// 初始化是否自动调用回调函数
+		callback : function(rtn) {
+			// 回调函数，返回选中的值（虽然提供了回调函数，但是依然建议用jquery的原生方式取值）
+			console.log(rtn.val);
+		}
+	});
+	
+	$(':radio[name="radio3"]').change(function() {
+		alert($(this).val());
+	});
+&lt;/script&gt;</code></pre>
+
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>name</td>
+							<td></td>
+							<td>radio的name属性</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>uncheckClass</td>
+							<td></td>
+							<td>未选中时往label标签添加的class</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>checkedClass</td>
+							<td></td>
+							<td>选中时往label标签添加的class</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>isInit</td>
+							<td>false</td>
+							<td>初始化是否自动调用回调函数</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>callback</td>
+							<td></td>
+							<td>返回选中的值（虽然提供了回调函数，但是依然建议用jquery的原生方式取值）</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="单选框1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

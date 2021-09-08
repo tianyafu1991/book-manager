@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>流加载</title>
+<script src="../js/ui.js"></script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>流加载</h4>
+		<hr>
+		
+		<h5>代码</h5>
+		<pre><code>&lt;script&gt;
+	var pageNum = 0;
+
+	javaex.flow({
+		id : "填写区域ID，不用加#",
+		loadDataFunction : function() {
+			pageNum++;
+			$.ajax({
+				url : "/article/nav/list",
+				type : "GET",
+				dataType : "json",
+				data : {
+					"navCode" : navCode,
+					"pageNum" : pageNum
+				},
+				success: function(rtn) {
+					if (rtn.code!=0) {
+						return;
+					}
+					
+					var pageInfo = rtn.data.pageInfo;
+					var list = rtn.data.pageInfo.list;
+					var html = '';
+					if (list.length>0) {
+						$.each(list, function(i, data) {
+							// 拼接数据
+						});
+					} else {
+						// 如果没有数据，结束加载（需要传入数据区域的id）
+						javaex.over("填写区域ID，不用加#");
+					}
+					// 载入数据
+					$("#blog-list-box").append(html);
+				}
+			});
+		}
+	});
+&lt;/script&gt;</code></pre>
+	</div>
+</body>
+</html>

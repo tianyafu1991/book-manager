@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>操作提示层</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<button id="demo1" class="button blue">提交中提示</button>
+	<button id="demo2" class="button blue">提示层</button>
+</body>
+<script>
+	$("#demo1").click(function() {
+		javaex.tip({
+			content : "提交中...",
+			type : "loading"
+		});
+	});
+	
+	$("#demo2").click(function() {
+		javaex.tip({
+			content : "我是提示层",
+			mask : false
+		});
+	});
+</script>
+</html>

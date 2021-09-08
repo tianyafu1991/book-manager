@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取系统时间</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>获取系统时间</h4>
+		<hr>
+		
+		<h5>返回当前时间，格式yyyy-MM-dd HH:mm:ss</h5>
+		<pre><code class="html">var time = javaex.getTime();</code></pre>
+		<h5>返回当前年份</h5>
+		<pre><code class="html">var time = javaex.getTime("year");</code></pre>
+		<h5>返回当前月份</h5>
+		<pre><code class="html">var time = javaex.getTime("month");</code></pre>
+		<h5>返回当前日</h5>
+		<pre><code class="html">var time = javaex.getTime("day");</code></pre>
+		<h5>返回今日日期，格式yyyy-MM-dd</h5>
+		<pre><code class="html">var time = javaex.getTime("today");</code></pre>
+		<h5>返回当日所属星期（1=周一，2=周二...7=周日）</h5>
+		<pre><code class="html">var time = javaex.getTime("week");</code></pre>
+		<h5>获得时间差</h5>
+		<pre><code class="html">/* 
+ * 获得时间差
+ * startTime : 开始时间（时间格式为 yyyy-MM-dd HH:mm:ss 例如：2018-06-21 00:00:00）
+ * endTime : 结束时间（时间格式为 yyyy-MM-dd HH:mm:ss 例如：2018-06-21 00:00:00）
+ * type : 返回精度（second，minute，hour，day）
+ */
+var time = javaex.getTimeDiff(startTime, endTime, type);</code></pre>
+	</div>
+</body>
+<script>
+	var time = javaex.getTimeDiff("2018-06-11 00:00:00", "2018-06-21 00:00:00", "day");
+	console.log(time);
+</script>
+</html>

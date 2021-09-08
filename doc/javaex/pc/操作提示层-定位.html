@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>操作提示层-定位</title>
+<script src="../js/ui.js"></script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>操作提示层-定位</h4>
+		<hr>
+		
+		<button class="javaex-btn green ml-20 mt-20" onclick="toast1(this)">成功</button>
+		<button class="javaex-btn red ml-20 mt-20" onclick="toast2(this)">失败</button>
+
+		<h5>代码</h5>
+		<pre><code class="html">&lt;button class="javaex-btn green ml-20 mt-20" onclick="toast1(this)"&gt;成功&lt;/button&gt;
+&lt;button class="javaex-btn red ml-20 mt-20" onclick="toast2(this)"&gt;失败&lt;/button&gt;
+
+&lt;script&gt;
+	// obj为当前点击的元素对象，obj是必须的
+	function toast1(obj) {
+		javaex.toast(obj, {
+			type : "success",
+			content : "关注成功"
+		});
+	}
+
+	function toast2(obj) {
+		javaex.toast(obj, {
+			type : "error",
+			content : "不能关注自己"
+		});
+	}
+&lt;/script&gt;</code></pre>
+		
+		<p class="divhr"></p>
+
+		<h5>参数说明</h5>
+		<table class="javaex-table">
+			<thead>
+				<tr>
+					<th>参数</th>
+					<th>默认值</th>
+					<th>说明</th>
+					<th>版本</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>content</td>
+					<td></td>
+					<td>弹出层内容</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>type</td>
+					<td>success</td>
+					<td>success:成功。 error:失败</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>live</td>
+					<td>2000</td>
+					<td>提示存在时间，单位:毫秒 <font color="red">（仅在type为 success 或 error 时有效）</font></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>offsetTop</td>
+					<td>0</td>
+					<td>上偏移量</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	// obj为当前点击的元素对象，obj是必须的
+	function toast1(obj) {
+		javaex.toast(obj, {
+			type : "success",
+			content : "关注成功"
+		});
+	}
+
+	function toast2(obj) {
+		javaex.toast(obj, {
+			type : "error",
+			content : "不能关注自己"
+		});
+	}
+</script>
+</html>

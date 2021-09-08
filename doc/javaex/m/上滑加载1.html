@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>上滑加载</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<div id="content" class="list-content"></div>
+</body>
+<script>
+	// 页数（这里就是写0）
+	var pageNum = 0;
+	// 每次请求的数据个数
+	var pageSize = 5;
+	
+	// 设置分页初始化属性
+	javaex.setPageInit();
+	// 调用上滑加载组件
+	javaex.page({
+		id : "content",	// 数据区域的id
+		loadDataFunction : function() {
+			pageNum++;
+			// 拼接HTML
+			var resultHtml = '';
+			$.ajax({
+				url : 'http://ons.me/tools/dropload/json.php',
+				type : "POST",
+				dataType : "json",
+				data : {
+					"page" : pageNum,
+					"size" : pageSize
+				},
+				success: function(rtn) {
+					// 根据实际数据自行编写下列代码
+					var length = rtn.length;
+					if (length>0) {
+						for (var i=0; i<length; i++) {
+							resultHtml += '<div class="block">';
+							resultHtml += '<div class="main">';
+							resultHtml += rtn[i].date;
+							resultHtml += '</div>';
+							resultHtml += '</div>';
+						}
+					} else {
+						// 如果没有数据，结束加载（需要传入数据区域的id）
+						javaex.over("content");
+					}
+					// 建议延迟加载
+					setTimeout(function() {
+						// 载入数据
+						$("#content").append(resultHtml);
+						// 每次数据载入后，必须重置（需要传入数据区域的id）
+						javaex.resetLoad("content");
+					}, 1000);
+				}
+			});
+		}
+	});
+</script>
+</html>

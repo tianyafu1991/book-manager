@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>重新渲染</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>重新渲染（渲染样式，而非数据）</h4>
+		<hr>
+		
+		<div class="word">
+			页面加载完后，如果需要动态添加html代码。<br />
+			这动态添加的代码将不受页面初始化加载的js的束缚，此时，需要重新渲染，让其支持。
+		</div>
+
+		<h5>整个页面渲染（通常为后台使用）</h5>
+		<pre><code class="html">javaex.render();</code></pre>
+		
+		<h5>局部渲染（只对栅格系统和等分系统有效，通常为前台页面使用）</h5>
+		<pre><code class="html">/**
+ * 局部渲染
+ * id : 元素区域id（该id必须本身作用于栅格或等分class的元素上）
+ * type : 渲染类型（equal：等分，grid：栅格）
+ */
+javaex.render({
+	id : "id",
+	type : "equal"
+});</code></pre>
+	</div>
+</body>
+</html>

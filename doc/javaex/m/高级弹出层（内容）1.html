@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>高级弹出层（内容）</title>
+<script src="../js/ui.m.js"></script>
+</head>
+<body>
+	<button id="demo" class="button blue">自定义内容样式</button>
+	
+	<!--请将正常编写的html代码复制到模板引擎下，这样就不用js拼接html代码了-->
+	<!--注意：模板引擎是写在<body></body>中的-->
+	<script id="html" type="text/javaex-template">  
+		<!--模板引擎中的html若想调用js函数，需要直接设置onclick才行-->
+		<!--模板引擎中调用的js函数不要写在模板引擎中-->
+		<input type="button" onclick="test()" class="button green full" value="测试" />
+	</script>
+</body>
+<script>
+	$("#demo").click(function() {
+		javaex.dialog({
+			type : "html",
+			fill : "auto",
+			title : "我是标题",
+			content : $("#html").html(),	// 根据模板引擎的id获取内容
+			scriptArr : ["../javaex/m/js/common.js"]	// 需要加载的JS数组
+		});
+	});
+	
+	// 模板引擎中的按钮会调用该函数
+	function test() {
+		javaex.tip({
+			content : "我是提示层"
+		});
+	}
+</script>
+</html>

@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>复选框</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>复选框</h4>
+		<hr>
+		
+		<div class="word">
+			默认点击文字也会勾选，不需要在外面包一层label
+		</div>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>普通样式代码（如果没有文字，则必须写一个空格或者直接用label标签包起来）</h5>
+				<pre><code class="html">&lt;input type="checkbox" class="fill"/&gt;复选框未选中
+&lt;input type="checkbox" class="fill" checked/&gt;复选框选中
+&lt;input type="checkbox" class="fill" disabled="disabled"/&gt;复选框未选中（只读）
+&lt;input type="checkbox" class="fill" checked disabled="disabled"/&gt;复选框选中（只读）</code></pre>
+		
+				<h5>高级样式代码</h5>
+				<pre><code class="html">&lt;input type="checkbox" class="svg" /&gt;复选框未选中
+&lt;input type="checkbox" class="svg" checked /&gt;复选框选中</code></pre>
+			
+				<h5>开关样式代码</h5>
+				<pre><code class="html">&lt;input type="checkbox" class="switch" /&gt;
+&lt;input type="checkbox" class="switch" checked /&gt;</code></pre>
+				
+				<h5>支持onchange事件</h5>
+				<pre><code class="html">&lt;input type="checkbox" class="switch" onchange="test(this)"/&gt;
+
+&lt;script&gt;
+	function test(obj) {
+		alert("切换了");
+//		$(obj).prop("checked", false);
+	}
+&lt;/script&gt;</code></pre>
+
+				<p class="divhr"></p>
+
+				<h5>伪多选</h5>
+				<pre><code class="html">&lt;!--在label标签上添加class即可（选中和未选中的class不要加）--&gt;
+&lt;label class="button"&gt;&lt;input type="checkbox" class="fake" name="checkbox3" value="1" checked/&gt;已选中&lt;/label&gt;
+&lt;label class="button"&gt;&lt;input type="checkbox" class="fake" name="checkbox3" value="2"/&gt;未选中&lt;/label&gt;
+
+&lt;script&gt;
+	javaex.fakeCheckbox({
+		name : "checkbox3",
+		uncheckClass : "wathet", // 未选中时添加的class
+		checkedClass : "blue" 	// 选中时添加的class
+	});
+&lt;/script&gt;</code></pre>
+
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>name</td>
+							<td></td>
+							<td>checkbox的name属性</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>uncheckClass</td>
+							<td></td>
+							<td>未选中时往label标签添加的class</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>checkedClass</td>
+							<td></td>
+							<td>选中时往label标签添加的class</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="复选框1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

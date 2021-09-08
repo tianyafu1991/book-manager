@@ -1,0 +1,86 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>高级弹出层（菜单）</title>
+<script src="../js/ui.js"></script>
+<script src="../js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="../css/mobile.image.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="doc-markdown">
+		<h4>高级弹出层（菜单）</h4>
+		<hr>
+		
+		<div class="grid-7-2-1">
+			<div>
+				<h5>代码</h5>
+		<pre><code class="html">&lt;button id="demo" class="button blue"&gt;菜单样式&lt;/button&gt;
+
+&lt;script&gt;
+	$("#demo").click(function() {
+		javaex.dialog({
+			type : "menu",
+			menu : {
+				// 允许加图标等样式，但是最外层必须用单引号包裹
+				'&lt;span class="icon-trash"&gt;&lt;/span&gt; 删除' : "del()",
+				'&lt;span class="icon-block"&gt;&lt;/span&gt; 禁用' : "disable()"
+			}
+		});
+	});
+
+	function del() {
+		javaex.confirm({
+			content : "确定要删除么？",
+			callback : "callback()"
+		});
+	}
+	
+	function callback() {
+		alert("点击了确定");
+	}
+	
+	function disable() {
+		alert("点击了禁用");
+	}
+&lt;/script&gt;</code></pre>
+				<h5>参数说明（使用属性默认值时，可以缺省该属性）</h5>
+				<table class="table color2">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>属性名</th>
+							<th>默认值</th>
+							<th>说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>type</td>
+							<td></td>
+							<td>弹出层类型。必须填 menu</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>menu</td>
+							<td></td>
+							<td>json字符串。写法请参照示例，菜单名对应的函数留空，视为关闭，不做任何操作</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>演示</h5>
+				<div class="device device-fixed">
+					<div class="device-content">
+						<iframe src="高级弹出层（菜单）1.html" width="320" height="569" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

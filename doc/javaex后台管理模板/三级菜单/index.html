@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<title>后台管理 - javaex前端框架</title>
+<!--字体图标-->
+<link href="http://cdn.javaex.cn/javaex/pc/css/icomoon.css" rel="stylesheet" />
+<!--动画-->
+<link href="http://cdn.javaex.cn/javaex/pc/css/animate.css" rel="stylesheet" />
+<!--骨架样式-->
+<link href="http://cdn.javaex.cn/javaex/pc/css/common.css" rel="stylesheet" />
+<!--皮肤-->
+<link href="http://cdn.javaex.cn/javaex/pc/css/skin/default.css" rel="stylesheet" />
+<!--jquery，不可修改版本-->
+<script src="http://cdn.javaex.cn/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+<!--核心组件-->
+<script src="http://cdn.javaex.cn/javaex/pc/js/javaex.min.js"></script>
+<!--表单验证-->
+<script src="http://cdn.javaex.cn/javaex/pc/js/javaex-formVerify.js"></script>
+<style>
+</style>
+</head>
+<body>
+	<div class="javaex-navbar">
+		<div class="javaex-container-fluid clear">
+			<!--logo名称-->
+			<div class="javaex-logo">Javaex</div>
+			
+			<!--左侧导航-->
+			<ul class="javaex-nav fl">
+				<li class="active"><a href="javascript:;">概览</a></li>
+				<li><a href="javascript:;">博客</a></li>
+				<li><a href="javascript:;">论坛</a></li>
+			</ul>
+			
+			<!--右侧-->
+			<ul class="javaex-nav fr">
+				<li>
+					<a href="javascript:;">欢迎您，Javaex</a>
+					<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+						<li><a href="/logout">退出当前账号</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="javaex-main-container">
+		<!--左侧菜单-->
+		<div class="javaex-aside javaex-aside-fixed">
+			<h1><span class="javaex-nav-name">博客</span></h1>
+			<div id="javaex-toc" class="javaex-toc">
+				<div class="javaex-menu-container">
+					<div id="menu" class="javaex-menu">
+						<ul>
+							<li class="javaex-menu-item alone hover">
+								<a href="javascript:page('/xx/');">一级菜单</a>
+							</li>
+							<li class="javaex-menu-item">
+								<a href="javascript:;">二级菜单<i class="icon-angle-down"></i></a>
+								<ul>
+									<li>
+										<a href="javascript:page('/xx/');">我的博客</a>
+										<a href="javascript:page('/xx/');">评论管理</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--iframe载入内容-->
+		<div class="javaex-markdown">
+			<iframe id="page" src="iframe-page.html"></iframe>
+		</div>
+	</div>
+</body>
+<script>
+	javaex.loading();
+	
+	var hightUrl = "/xx/123";
+	javaex.menu({
+		id : "menu",
+		isAutoSelected : true,
+		url : hightUrl
+	});
+	
+	$(function() {
+		// 设置左侧菜单高度
+		setMenuHeight();
+	});
+	
+	/**
+	 * 设置左侧菜单高度
+	 */
+	function setMenuHeight() {
+		var height = document.documentElement.clientHeight - $("#javaex-toc").offset().top;
+		height = height - 10;
+		$("#javaex-toc").css("height", height+"px");
+	}
+	
+	/**
+	 * 控制页面载入
+	 */
+	function page(url) {
+		$("#page").attr("src", url);
+	}
+</script>
+</html>

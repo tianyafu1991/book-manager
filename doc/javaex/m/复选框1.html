@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>复选框</title>
+<script src="../js/ui.m.js"></script>
+</head>
+
+<body>
+	<div class="list-content">
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>普通样式</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				<input type="checkbox" class="fill"/>复选框未选中<br />
+				<input type="checkbox" class="fill" checked/>复选框选中<br />
+				<input type="checkbox" class="fill" disabled="disabled"/>复选框未选中（只读）<br />
+				<input type="checkbox" class="fill" checked disabled="disabled"/>复选框选中（只读）
+			</div>
+		</div>
+		
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>高级样式</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				<input type="checkbox" class="svg" />复选框未选中
+				<!--分割线-->
+				<p class="divider"></p>
+				<input type="checkbox" class="svg" checked />复选框选中
+			</div>
+		</div>
+
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>开关样式</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				<input type="checkbox" class="switch" /><br />
+				<input type="checkbox" class="switch" checked />
+			</div>
+		</div>
+
+		<!--块元素-->
+		<div class="block">
+			<!--用来修饰块元素的-->
+			<div class="banner">
+				<!--左侧标题-->
+				<span>伪多选</span>
+			</div>
+			<!--正文内容-->
+			<div class="main">
+				<!--在label标签上添加class即可（选中和未选中的class不要加）-->
+				<label class="button"><input type="checkbox" class="fake" name="checkbox3" value="1" checked/>已选中</label>
+				<label class="button"><input type="checkbox" class="fake" name="checkbox3" value="2"/>未选中</label>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	javaex.fakeCheckbox({
+		name : "checkbox3",
+		uncheckClass : "wathet", // 未选中时添加的class
+		checkedClass : "blue" 	// 选中时添加的class
+	});
+</script>
+</html>
